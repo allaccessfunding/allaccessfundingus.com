@@ -264,11 +264,17 @@
 </script>
 
 <script>
-  // Wait for the page to fully load
-  window.addEventListener('load', function() {
-    // Attach listener for HubSpot form submissions
-    window.addEventListener('message', function(event) {
-      try {
+(function(){
+  console.log('Starting HubSpot conversion polling listener');
+
+  // Maximum time to keep polling (ms)
+  const POLL_TIMEOUT = 30000; // 30 seconds
+  const POLL_INTERVAL = 500;  // check every 0.5s
+  const startTime = Date.now();
+
+  function attachListener() {
+    try {
+      window.addEventListener('message', function(event) {
         if (
           event.data &&
           event.data.type === 'hsFormCallback' &&
@@ -281,12 +287,29 @@
             'currency': 'USD'
           });
         }
-      } catch(e) {
-        console.error('HubSpot conversion listener error', e);
+      });
+      console.log('HubSpot conversion listener attached');
+      return true;
+    } catch(e) {
+      console.warn('Failed to attach HubSpot listener, retrying...', e);
+      return false;
+    }
+  }
+
+  // Try to attach immediately
+  if(!attachListener()) {
+    // Poll until we succeed or timeout
+    const intervalId = setInterval(function(){
+      if(attachListener() || (Date.now() - startTime) > POLL_TIMEOUT){
+        clearInterval(intervalId);
+        if(Date.now() - startTime > POLL_TIMEOUT) {
+          console.warn('Stopped polling for HubSpot form — listener not attached.');
+        }
       }
-    });
-    console.log('HubSpot conversion listener attached');
-  });
+    }, POLL_INTERVAL);
+  }
+
+})();
 </script>
 
 </body>
