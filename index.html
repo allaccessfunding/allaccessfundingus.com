@@ -264,37 +264,28 @@
 </script>
 
 <script>
-  // Wait until the page is fully loaded
+  // Wait for the page to fully load
   window.addEventListener('load', function() {
-    // Keep trying to attach the listener in case HubSpot script loads slowly
-    function attachListener() {
-      if (window.addEventListener) {
-        window.addEventListener('message', function(event) {
-          try {
-            if (
-              event.data &&
-              event.data.type === 'hsFormCallback' &&
-              event.data.eventName === 'onFormSubmit'
-            ) {
-              console.log('HubSpot form submitted — firing Google Ads conversion');
-              gtag('event', 'conversion', {
-                'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
-                'value': 1.0,
-                'currency': 'USD'
-              });
-            }
-          } catch(e) {
-            console.error('Error in HubSpot conversion listener', e);
-          }
-        });
-        console.log('HubSpot conversion listener attached');
-      } else {
-        // Retry in 200ms if addEventListener isn’t ready (very rare)
-        setTimeout(attachListener, 200);
+    // Attach listener for HubSpot form submissions
+    window.addEventListener('message', function(event) {
+      try {
+        if (
+          event.data &&
+          event.data.type === 'hsFormCallback' &&
+          event.data.eventName === 'onFormSubmit'
+        ) {
+          console.log('HubSpot form submitted — firing Google Ads conversion');
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
+      } catch(e) {
+        console.error('HubSpot conversion listener error', e);
       }
-    }
-
-    attachListener();
+    });
+    console.log('HubSpot conversion listener attached');
   });
 </script>
 
