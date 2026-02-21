@@ -263,5 +263,18 @@
   setInterval(showNextTestimonial, 4000);
 </script>
 
+<script>
+  window.addEventListener('message', function(event) {
+    if (event.data?.type === 'hsFormCallback' &&
+        event.data?.eventName === 'onFormSubmit') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
+        'value': 1.0,
+        'currency': 'USD'
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
