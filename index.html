@@ -312,5 +312,24 @@
 })();
 </script>
 
+<script>
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+    var form = document.querySelector('form.hs-form');
+    if (!form) return;
+
+    // Prevent duplicate injection
+    if (form.querySelector('input[name="submission_id"]')) return;
+
+    var hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 'submission_id';
+    hiddenInput.value = Date.now(); // unique per submission
+
+    form.appendChild(hiddenInput);
+  }
+});
+</script>
+
 </body>
 </html>
