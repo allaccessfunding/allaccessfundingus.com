@@ -1,0 +1,1557 @@
+{
+  "201": {
+    "city": "Hoboken",
+    "state": "NJ",
+    "zip": "07030"
+  },
+  "202": {
+    "city": "Washington",
+    "state": "DC",
+    "zip": "20001"
+  },
+  "203": {
+    "city": "New Haven",
+    "state": "CT",
+    "zip": "06510"
+  },
+  "205": {
+    "city": "Birmingham",
+    "state": "AL",
+    "zip": "35203"
+  },
+  "206": {
+    "city": "Seattle",
+    "state": "WA",
+    "zip": "98101"
+  },
+  "207": {
+    "city": "Portland",
+    "state": "ME",
+    "zip": "04101"
+  },
+  "208": {
+    "city": "Boise",
+    "state": "ID",
+    "zip": "83702"
+  },
+  "209": {
+    "city": "Modesto",
+    "state": "CA",
+    "zip": "95350"
+  },
+  "210": {
+    "city": "San Antonio",
+    "state": "TX",
+    "zip": "78205"
+  },
+  "212": {
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001"
+  },
+  "213": {
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "90012"
+  },
+  "214": {
+    "city": "Dallas",
+    "state": "TX",
+    "zip": "75201"
+  },
+  "215": {
+    "city": "Philadelphia",
+    "state": "PA",
+    "zip": "19102"
+  },
+  "216": {
+    "city": "Cleveland",
+    "state": "OH",
+    "zip": "44101"
+  },
+  "217": {
+    "city": "Springfield",
+    "state": "IL",
+    "zip": "62701"
+  },
+  "218": {
+    "city": "Duluth",
+    "state": "MN",
+    "zip": "55802"
+  },
+  "219": {
+    "city": "Gary",
+    "state": "IN",
+    "zip": "46402"
+  },
+  "224": {
+    "city": "Elk Grove Village",
+    "state": "IL",
+    "zip": "60007"
+  },
+  "225": {
+    "city": "Baton Rouge",
+    "state": "LA",
+    "zip": "70801"
+  },
+  "228": {
+    "city": "Biloxi",
+    "state": "MS",
+    "zip": "39530"
+  },
+  "229": {
+    "city": "Albany",
+    "state": "GA",
+    "zip": "31701"
+  },
+  "231": {
+    "city": "Traverse City",
+    "state": "MI",
+    "zip": "49684"
+  },
+  "234": {
+    "city": "Akron",
+    "state": "OH",
+    "zip": "44308"
+  },
+  "239": {
+    "city": "Fort Myers",
+    "state": "FL",
+    "zip": "33901"
+  },
+  "240": {
+    "city": "Rockville",
+    "state": "MD",
+    "zip": "20850"
+  },
+  "248": {
+    "city": "Bloomfield Hills",
+    "state": "MI",
+    "zip": "48301"
+  },
+  "251": {
+    "city": "Mobile",
+    "state": "AL",
+    "zip": "36602"
+  },
+  "252": {
+    "city": "Greenville",
+    "state": "NC",
+    "zip": "27834"
+  },
+  "253": {
+    "city": "Tacoma",
+    "state": "WA",
+    "zip": "98402"
+  },
+  "254": {
+    "city": "Waco",
+    "state": "TX",
+    "zip": "76701"
+  },
+  "256": {
+    "city": "Huntsville",
+    "state": "AL",
+    "zip": "35801"
+  },
+  "260": {
+    "city": "Fort Wayne",
+    "state": "IN",
+    "zip": "46802"
+  },
+  "262": {
+    "city": "Waukesha",
+    "state": "WI",
+    "zip": "53186"
+  },
+  "267": {
+    "city": "Philadelphia",
+    "state": "PA",
+    "zip": "19107"
+  },
+  "269": {
+    "city": "Kalamazoo",
+    "state": "MI",
+    "zip": "49007"
+  },
+  "270": {
+    "city": "Bowling Green",
+    "state": "KY",
+    "zip": "42101"
+  },
+  "272": {
+    "city": "Scranton",
+    "state": "PA",
+    "zip": "18503"
+  },
+  "276": {
+    "city": "Wytheville",
+    "state": "VA",
+    "zip": "24382"
+  },
+  "281": {
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77002"
+  },
+  "301": {
+    "city": "Bethesda",
+    "state": "MD",
+    "zip": "20852"
+  },
+  "302": {
+    "city": "Wilmington",
+    "state": "DE",
+    "zip": "19801"
+  },
+  "303": {
+    "city": "Denver",
+    "state": "CO",
+    "zip": "80202"
+  },
+  "304": {
+    "city": "Charleston",
+    "state": "WV",
+    "zip": "25301"
+  },
+  "305": {
+    "city": "Miami",
+    "state": "FL",
+    "zip": "33101"
+  },
+  "307": {
+    "city": "Cheyenne",
+    "state": "WY",
+    "zip": "82001"
+  },
+  "308": {
+    "city": "Grand Island",
+    "state": "NE",
+    "zip": "68801"
+  },
+  "309": {
+    "city": "Peoria",
+    "state": "IL",
+    "zip": "61602"
+  },
+  "310": {
+    "city": "Santa Monica",
+    "state": "CA",
+    "zip": "90401"
+  },
+  "312": {
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60601"
+  },
+  "313": {
+    "city": "Detroit",
+    "state": "MI",
+    "zip": "48201"
+  },
+  "314": {
+    "city": "St. Louis",
+    "state": "MO",
+    "zip": "63101"
+  },
+  "315": {
+    "city": "Syracuse",
+    "state": "NY",
+    "zip": "13202"
+  },
+  "316": {
+    "city": "Wichita",
+    "state": "KS",
+    "zip": "67202"
+  },
+  "317": {
+    "city": "Indianapolis",
+    "state": "IN",
+    "zip": "46204"
+  },
+  "318": {
+    "city": "Shreveport",
+    "state": "LA",
+    "zip": "71101"
+  },
+  "319": {
+    "city": "Cedar Rapids",
+    "state": "IA",
+    "zip": "52401"
+  },
+  "320": {
+    "city": "St. Cloud",
+    "state": "MN",
+    "zip": "56301"
+  },
+  "321": {
+    "city": "Melbourne",
+    "state": "FL",
+    "zip": "32901"
+  },
+  "323": {
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "90028"
+  },
+  "325": {
+    "city": "San Angelo",
+    "state": "TX",
+    "zip": "76901"
+  },
+  "330": {
+    "city": "Akron",
+    "state": "OH",
+    "zip": "44308"
+  },
+  "331": {
+    "city": "Naperville",
+    "state": "IL",
+    "zip": "60540"
+  },
+  "332": {
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001"
+  },
+  "334": {
+    "city": "Montgomery",
+    "state": "AL",
+    "zip": "36104"
+  },
+  "336": {
+    "city": "Greensboro",
+    "state": "NC",
+    "zip": "27401"
+  },
+  "337": {
+    "city": "Lafayette",
+    "state": "LA",
+    "zip": "70501"
+  },
+  "339": {
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02108"
+  },
+  "346": {
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77002"
+  },
+  "347": {
+    "city": "Brooklyn",
+    "state": "NY",
+    "zip": "11201"
+  },
+  "351": {
+    "city": "Lowell",
+    "state": "MA",
+    "zip": "01852"
+  },
+  "352": {
+    "city": "Gainesville",
+    "state": "FL",
+    "zip": "32601"
+  },
+  "360": {
+    "city": "Olympia",
+    "state": "WA",
+    "zip": "98501"
+  },
+  "361": {
+    "city": "Corpus Christi",
+    "state": "TX",
+    "zip": "78401"
+  },
+  "364": {
+    "city": "Bowling Green",
+    "state": "KY",
+    "zip": "42101"
+  },
+  "385": {
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zip": "84101"
+  },
+  "386": {
+    "city": "Daytona Beach",
+    "state": "FL",
+    "zip": "32114"
+  },
+  "401": {
+    "city": "Providence",
+    "state": "RI",
+    "zip": "02903"
+  },
+  "402": {
+    "city": "Omaha",
+    "state": "NE",
+    "zip": "68102"
+  },
+  "404": {
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30303"
+  },
+  "405": {
+    "city": "Oklahoma City",
+    "state": "OK",
+    "zip": "73102"
+  },
+  "406": {
+    "city": "Helena",
+    "state": "MT",
+    "zip": "59601"
+  },
+  "407": {
+    "city": "Orlando",
+    "state": "FL",
+    "zip": "32801"
+  },
+  "408": {
+    "city": "San Jose",
+    "state": "CA",
+    "zip": "95112"
+  },
+  "409": {
+    "city": "Beaumont",
+    "state": "TX",
+    "zip": "77701"
+  },
+  "410": {
+    "city": "Baltimore",
+    "state": "MD",
+    "zip": "21201"
+  },
+  "412": {
+    "city": "Pittsburgh",
+    "state": "PA",
+    "zip": "15222"
+  },
+  "413": {
+    "city": "Springfield",
+    "state": "MA",
+    "zip": "01103"
+  },
+  "414": {
+    "city": "Milwaukee",
+    "state": "WI",
+    "zip": "53202"
+  },
+  "415": {
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "94103"
+  },
+  "417": {
+    "city": "Springfield",
+    "state": "MO",
+    "zip": "65806"
+  },
+  "419": {
+    "city": "Toledo",
+    "state": "OH",
+    "zip": "43604"
+  },
+  "423": {
+    "city": "Chattanooga",
+    "state": "TN",
+    "zip": "37402"
+  },
+  "424": {
+    "city": "El Segundo",
+    "state": "CA",
+    "zip": "90245"
+  },
+  "425": {
+    "city": "Bellevue",
+    "state": "WA",
+    "zip": "98004"
+  },
+  "430": {
+    "city": "Paris",
+    "state": "TX",
+    "zip": "75460"
+  },
+  "432": {
+    "city": "Midland",
+    "state": "TX",
+    "zip": "79701"
+  },
+  "434": {
+    "city": "Charlottesville",
+    "state": "VA",
+    "zip": "22902"
+  },
+  "435": {
+    "city": "St. George",
+    "state": "UT",
+    "zip": "84770"
+  },
+  "440": {
+    "city": "Lorain",
+    "state": "OH",
+    "zip": "44052"
+  },
+  "442": {
+    "city": "Palm Springs",
+    "state": "CA",
+    "zip": "92262"
+  },
+  "443": {
+    "city": "Baltimore",
+    "state": "MD",
+    "zip": "21201"
+  },
+  "458": {
+    "city": "Eugene",
+    "state": "OR",
+    "zip": "97401"
+  },
+  "463": {
+    "city": "Indianapolis",
+    "state": "IN",
+    "zip": "46204"
+  },
+  "469": {
+    "city": "McKinney",
+    "state": "TX",
+    "zip": "75069"
+  },
+  "470": {
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30303"
+  },
+  "475": {
+    "city": "New Haven",
+    "state": "CT",
+    "zip": "06510"
+  },
+  "478": {
+    "city": "Macon",
+    "state": "GA",
+    "zip": "31201"
+  },
+  "479": {
+    "city": "Fayetteville",
+    "state": "AR",
+    "zip": "72701"
+  },
+  "480": {
+    "city": "Scottsdale",
+    "state": "AZ",
+    "zip": "85251"
+  },
+  "484": {
+    "city": "Bethlehem",
+    "state": "PA",
+    "zip": "18015"
+  },
+  "501": {
+    "city": "Little Rock",
+    "state": "AR",
+    "zip": "72201"
+  },
+  "502": {
+    "city": "Louisville",
+    "state": "KY",
+    "zip": "40202"
+  },
+  "503": {
+    "city": "Portland",
+    "state": "OR",
+    "zip": "97204"
+  },
+  "504": {
+    "city": "New Orleans",
+    "state": "LA",
+    "zip": "70112"
+  },
+  "505": {
+    "city": "Albuquerque",
+    "state": "NM",
+    "zip": "87102"
+  },
+  "507": {
+    "city": "Rochester",
+    "state": "MN",
+    "zip": "55902"
+  },
+  "508": {
+    "city": "Worcester",
+    "state": "MA",
+    "zip": "01608"
+  },
+  "509": {
+    "city": "Spokane",
+    "state": "WA",
+    "zip": "99201"
+  },
+  "510": {
+    "city": "Oakland",
+    "state": "CA",
+    "zip": "94607"
+  },
+  "512": {
+    "city": "Austin",
+    "state": "TX",
+    "zip": "78701"
+  },
+  "513": {
+    "city": "Cincinnati",
+    "state": "OH",
+    "zip": "45202"
+  },
+  "515": {
+    "city": "Des Moines",
+    "state": "IA",
+    "zip": "50309"
+  },
+  "516": {
+    "city": "Mineola",
+    "state": "NY",
+    "zip": "11501"
+  },
+  "517": {
+    "city": "Lansing",
+    "state": "MI",
+    "zip": "48933"
+  },
+  "518": {
+    "city": "Albany",
+    "state": "NY",
+    "zip": "12207"
+  },
+  "520": {
+    "city": "Tucson",
+    "state": "AZ",
+    "zip": "85701"
+  },
+  "530": {
+    "city": "Chico",
+    "state": "CA",
+    "zip": "95928"
+  },
+  "531": {
+    "city": "Lincoln",
+    "state": "NE",
+    "zip": "68508"
+  },
+  "534": {
+    "city": "Racine",
+    "state": "WI",
+    "zip": "53403"
+  },
+  "539": {
+    "city": "Tulsa",
+    "state": "OK",
+    "zip": "74103"
+  },
+  "540": {
+    "city": "Roanoke",
+    "state": "VA",
+    "zip": "24011"
+  },
+  "541": {
+    "city": "Eugene",
+    "state": "OR",
+    "zip": "97401"
+  },
+  "551": {
+    "city": "Hoboken",
+    "state": "NJ",
+    "zip": "07030"
+  },
+  "557": {
+    "city": "St. Louis",
+    "state": "MO",
+    "zip": "63101"
+  },
+  "559": {
+    "city": "Fresno",
+    "state": "CA",
+    "zip": "93721"
+  },
+  "561": {
+    "city": "West Palm Beach",
+    "state": "FL",
+    "zip": "33401"
+  },
+  "562": {
+    "city": "Long Beach",
+    "state": "CA",
+    "zip": "90802"
+  },
+  "563": {
+    "city": "Davenport",
+    "state": "IA",
+    "zip": "52801"
+  },
+  "564": {
+    "city": "Olympia",
+    "state": "WA",
+    "zip": "98501"
+  },
+  "567": {
+    "city": "Toledo",
+    "state": "OH",
+    "zip": "43604"
+  },
+  "570": {
+    "city": "Scranton",
+    "state": "PA",
+    "zip": "18503"
+  },
+  "571": {
+    "city": "Arlington",
+    "state": "VA",
+    "zip": "22201"
+  },
+  "573": {
+    "city": "Jefferson City",
+    "state": "MO",
+    "zip": "65101"
+  },
+  "574": {
+    "city": "South Bend",
+    "state": "IN",
+    "zip": "46601"
+  },
+  "575": {
+    "city": "Las Cruces",
+    "state": "NM",
+    "zip": "88001"
+  },
+  "580": {
+    "city": "Lawton",
+    "state": "OK",
+    "zip": "73501"
+  },
+  "585": {
+    "city": "Rochester",
+    "state": "NY",
+    "zip": "14604"
+  },
+  "586": {
+    "city": "Mount Clemens",
+    "state": "MI",
+    "zip": "48043"
+  },
+  "601": {
+    "city": "Jackson",
+    "state": "MS",
+    "zip": "39201"
+  },
+  "602": {
+    "city": "Phoenix",
+    "state": "AZ",
+    "zip": "85003"
+  },
+  "603": {
+    "city": "Concord",
+    "state": "NH",
+    "zip": "03301"
+  },
+  "605": {
+    "city": "Sioux Falls",
+    "state": "SD",
+    "zip": "57104"
+  },
+  "606": {
+    "city": "Ashland",
+    "state": "KY",
+    "zip": "41101"
+  },
+  "607": {
+    "city": "Ithaca",
+    "state": "NY",
+    "zip": "14850"
+  },
+  "608": {
+    "city": "Madison",
+    "state": "WI",
+    "zip": "53703"
+  },
+  "609": {
+    "city": "Trenton",
+    "state": "NJ",
+    "zip": "08608"
+  },
+  "610": {
+    "city": "Allentown",
+    "state": "PA",
+    "zip": "18101"
+  },
+  "612": {
+    "city": "Minneapolis",
+    "state": "MN",
+    "zip": "55401"
+  },
+  "614": {
+    "city": "Columbus",
+    "state": "OH",
+    "zip": "43215"
+  },
+  "615": {
+    "city": "Nashville",
+    "state": "TN",
+    "zip": "37219"
+  },
+  "616": {
+    "city": "Grand Rapids",
+    "state": "MI",
+    "zip": "49503"
+  },
+  "617": {
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02108"
+  },
+  "618": {
+    "city": "Belleville",
+    "state": "IL",
+    "zip": "62220"
+  },
+  "619": {
+    "city": "San Diego",
+    "state": "CA",
+    "zip": "92101"
+  },
+  "620": {
+    "city": "Hutchinson",
+    "state": "KS",
+    "zip": "67501"
+  },
+  "623": {
+    "city": "Glendale",
+    "state": "AZ",
+    "zip": "85301"
+  },
+  "626": {
+    "city": "Pasadena",
+    "state": "CA",
+    "zip": "91101"
+  },
+  "628": {
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "94103"
+  },
+  "629": {
+    "city": "Nashville",
+    "state": "TN",
+    "zip": "37219"
+  },
+  "630": {
+    "city": "Naperville",
+    "state": "IL",
+    "zip": "60540"
+  },
+  "631": {
+    "city": "Brentwood",
+    "state": "NY",
+    "zip": "11717"
+  },
+  "636": {
+    "city": "St. Charles",
+    "state": "MO",
+    "zip": "63301"
+  },
+  "640": {
+    "city": "Trenton",
+    "state": "NJ",
+    "zip": "08608"
+  },
+  "641": {
+    "city": "Ottumwa",
+    "state": "IA",
+    "zip": "52501"
+  },
+  "646": {
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001"
+  },
+  "650": {
+    "city": "San Mateo",
+    "state": "CA",
+    "zip": "94401"
+  },
+  "651": {
+    "city": "St. Paul",
+    "state": "MN",
+    "zip": "55102"
+  },
+  "657": {
+    "city": "Anaheim",
+    "state": "CA",
+    "zip": "92802"
+  },
+  "660": {
+    "city": "Sedalia",
+    "state": "MO",
+    "zip": "65301"
+  },
+  "661": {
+    "city": "Bakersfield",
+    "state": "CA",
+    "zip": "93301"
+  },
+  "662": {
+    "city": "Tupelo",
+    "state": "MS",
+    "zip": "38801"
+  },
+  "667": {
+    "city": "Baltimore",
+    "state": "MD",
+    "zip": "21201"
+  },
+  "669": {
+    "city": "San Jose",
+    "state": "CA",
+    "zip": "95112"
+  },
+  "678": {
+    "city": "Decatur",
+    "state": "GA",
+    "zip": "30030"
+  },
+  "681": {
+    "city": "Charleston",
+    "state": "WV",
+    "zip": "25301"
+  },
+  "682": {
+    "city": "Fort Worth",
+    "state": "TX",
+    "zip": "76102"
+  },
+  "701": {
+    "city": "Bismarck",
+    "state": "ND",
+    "zip": "58501"
+  },
+  "702": {
+    "city": "Las Vegas",
+    "state": "NV",
+    "zip": "89101"
+  },
+  "703": {
+    "city": "Fairfax",
+    "state": "VA",
+    "zip": "22030"
+  },
+  "704": {
+    "city": "Charlotte",
+    "state": "NC",
+    "zip": "28202"
+  },
+  "706": {
+    "city": "Augusta",
+    "state": "GA",
+    "zip": "30901"
+  },
+  "707": {
+    "city": "Santa Rosa",
+    "state": "CA",
+    "zip": "95401"
+  },
+  "708": {
+    "city": "Calumet City",
+    "state": "IL",
+    "zip": "60409"
+  },
+  "712": {
+    "city": "Sioux City",
+    "state": "IA",
+    "zip": "51101"
+  },
+  "713": {
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77002"
+  },
+  "714": {
+    "city": "Anaheim",
+    "state": "CA",
+    "zip": "92802"
+  },
+  "715": {
+    "city": "Eau Claire",
+    "state": "WI",
+    "zip": "54701"
+  },
+  "716": {
+    "city": "Buffalo",
+    "state": "NY",
+    "zip": "14202"
+  },
+  "717": {
+    "city": "Harrisburg",
+    "state": "PA",
+    "zip": "17101"
+  },
+  "718": {
+    "city": "Brooklyn",
+    "state": "NY",
+    "zip": "11201"
+  },
+  "719": {
+    "city": "Colorado Springs",
+    "state": "CO",
+    "zip": "80903"
+  },
+  "720": {
+    "city": "Denver",
+    "state": "CO",
+    "zip": "80202"
+  },
+  "724": {
+    "city": "Greensburg",
+    "state": "PA",
+    "zip": "15601"
+  },
+  "725": {
+    "city": "Las Vegas",
+    "state": "NV",
+    "zip": "89101"
+  },
+  "727": {
+    "city": "St. Petersburg",
+    "state": "FL",
+    "zip": "33701"
+  },
+  "731": {
+    "city": "Jackson",
+    "state": "TN",
+    "zip": "38301"
+  },
+  "732": {
+    "city": "New Brunswick",
+    "state": "NJ",
+    "zip": "08901"
+  },
+  "734": {
+    "city": "Ann Arbor",
+    "state": "MI",
+    "zip": "48104"
+  },
+  "737": {
+    "city": "Austin",
+    "state": "TX",
+    "zip": "78701"
+  },
+  "740": {
+    "city": "Zanesville",
+    "state": "OH",
+    "zip": "43701"
+  },
+  "743": {
+    "city": "Greensboro",
+    "state": "NC",
+    "zip": "27401"
+  },
+  "747": {
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "91402"
+  },
+  "754": {
+    "city": "Fort Lauderdale",
+    "state": "FL",
+    "zip": "33301"
+  },
+  "757": {
+    "city": "Norfolk",
+    "state": "VA",
+    "zip": "23510"
+  },
+  "760": {
+    "city": "Palm Springs",
+    "state": "CA",
+    "zip": "92262"
+  },
+  "762": {
+    "city": "Augusta",
+    "state": "GA",
+    "zip": "30901"
+  },
+  "763": {
+    "city": "Maple Grove",
+    "state": "MN",
+    "zip": "55369"
+  },
+  "765": {
+    "city": "Lafayette",
+    "state": "IN",
+    "zip": "47901"
+  },
+  "769": {
+    "city": "Jackson",
+    "state": "MS",
+    "zip": "39201"
+  },
+  "770": {
+    "city": "Decatur",
+    "state": "GA",
+    "zip": "30030"
+  },
+  "772": {
+    "city": "Fort Pierce",
+    "state": "FL",
+    "zip": "34950"
+  },
+  "773": {
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60616"
+  },
+  "774": {
+    "city": "Worcester",
+    "state": "MA",
+    "zip": "01608"
+  },
+  "775": {
+    "city": "Reno",
+    "state": "NV",
+    "zip": "89501"
+  },
+  "779": {
+    "city": "Rockford",
+    "state": "IL",
+    "zip": "61107"
+  },
+  "781": {
+    "city": "Cambridge",
+    "state": "MA",
+    "zip": "02138"
+  },
+  "785": {
+    "city": "Topeka",
+    "state": "KS",
+    "zip": "66603"
+  },
+  "786": {
+    "city": "Miami",
+    "state": "FL",
+    "zip": "33101"
+  },
+  "801": {
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zip": "84101"
+  },
+  "802": {
+    "city": "Montpelier",
+    "state": "VT",
+    "zip": "05602"
+  },
+  "803": {
+    "city": "Columbia",
+    "state": "SC",
+    "zip": "29201"
+  },
+  "804": {
+    "city": "Richmond",
+    "state": "VA",
+    "zip": "23219"
+  },
+  "805": {
+    "city": "Santa Barbara",
+    "state": "CA",
+    "zip": "93101"
+  },
+  "806": {
+    "city": "Amarillo",
+    "state": "TX",
+    "zip": "79101"
+  },
+  "808": {
+    "city": "Honolulu",
+    "state": "HI",
+    "zip": "96813"
+  },
+  "810": {
+    "city": "Flint",
+    "state": "MI",
+    "zip": "48502"
+  },
+  "812": {
+    "city": "Bloomington",
+    "state": "IN",
+    "zip": "47404"
+  },
+  "813": {
+    "city": "Tampa",
+    "state": "FL",
+    "zip": "33602"
+  },
+  "814": {
+    "city": "Erie",
+    "state": "PA",
+    "zip": "16501"
+  },
+  "815": {
+    "city": "Rockford",
+    "state": "IL",
+    "zip": "61107"
+  },
+  "816": {
+    "city": "Kansas City",
+    "state": "MO",
+    "zip": "64106"
+  },
+  "817": {
+    "city": "Fort Worth",
+    "state": "TX",
+    "zip": "76102"
+  },
+  "818": {
+    "city": "Burbank",
+    "state": "CA",
+    "zip": "91502"
+  },
+  "828": {
+    "city": "Asheville",
+    "state": "NC",
+    "zip": "28801"
+  },
+  "830": {
+    "city": "Del Rio",
+    "state": "TX",
+    "zip": "78840"
+  },
+  "831": {
+    "city": "Monterey",
+    "state": "CA",
+    "zip": "93940"
+  },
+  "832": {
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77002"
+  },
+  "839": {
+    "city": "Columbia",
+    "state": "SC",
+    "zip": "29201"
+  },
+  "843": {
+    "city": "Charleston",
+    "state": "SC",
+    "zip": "29401"
+  },
+  "845": {
+    "city": "Poughkeepsie",
+    "state": "NY",
+    "zip": "12601"
+  },
+  "847": {
+    "city": "Wheeling",
+    "state": "IL",
+    "zip": "60090"
+  },
+  "848": {
+    "city": "New Brunswick",
+    "state": "NJ",
+    "zip": "08901"
+  },
+  "850": {
+    "city": "Tallahassee",
+    "state": "FL",
+    "zip": "32301"
+  },
+  "856": {
+    "city": "Camden",
+    "state": "NJ",
+    "zip": "08102"
+  },
+  "857": {
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02108"
+  },
+  "858": {
+    "city": "San Diego",
+    "state": "CA",
+    "zip": "92121"
+  },
+  "859": {
+    "city": "Lexington",
+    "state": "KY",
+    "zip": "40507"
+  },
+  "860": {
+    "city": "Hartford",
+    "state": "CT",
+    "zip": "06103"
+  },
+  "862": {
+    "city": "Newark",
+    "state": "NJ",
+    "zip": "07102"
+  },
+  "863": {
+    "city": "Lakeland",
+    "state": "FL",
+    "zip": "33801"
+  },
+  "864": {
+    "city": "Greenville",
+    "state": "SC",
+    "zip": "29601"
+  },
+  "865": {
+    "city": "Knoxville",
+    "state": "TN",
+    "zip": "37902"
+  },
+  "870": {
+    "city": "Jonesboro",
+    "state": "AR",
+    "zip": "72401"
+  },
+  "872": {
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60601"
+  },
+  "878": {
+    "city": "Pittsburgh",
+    "state": "PA",
+    "zip": "15222"
+  },
+  "901": {
+    "city": "Memphis",
+    "state": "TN",
+    "zip": "38103"
+  },
+  "903": {
+    "city": "Tyler",
+    "state": "TX",
+    "zip": "75701"
+  },
+  "904": {
+    "city": "Jacksonville",
+    "state": "FL",
+    "zip": "32202"
+  },
+  "906": {
+    "city": "Marquette",
+    "state": "MI",
+    "zip": "49855"
+  },
+  "907": {
+    "city": "Anchorage",
+    "state": "AK",
+    "zip": "99501"
+  },
+  "908": {
+    "city": "Cranford",
+    "state": "NJ",
+    "zip": "07016"
+  },
+  "909": {
+    "city": "San Bernardino",
+    "state": "CA",
+    "zip": "92401"
+  },
+  "910": {
+    "city": "Wilmington",
+    "state": "NC",
+    "zip": "28401"
+  },
+  "912": {
+    "city": "Savannah",
+    "state": "GA",
+    "zip": "31401"
+  },
+  "913": {
+    "city": "Kansas City",
+    "state": "KS",
+    "zip": "66101"
+  },
+  "914": {
+    "city": "White Plains",
+    "state": "NY",
+    "zip": "10601"
+  },
+  "915": {
+    "city": "El Paso",
+    "state": "TX",
+    "zip": "79901"
+  },
+  "916": {
+    "city": "Sacramento",
+    "state": "CA",
+    "zip": "95814"
+  },
+  "917": {
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001"
+  },
+  "918": {
+    "city": "Tulsa",
+    "state": "OK",
+    "zip": "74103"
+  },
+  "919": {
+    "city": "Raleigh",
+    "state": "NC",
+    "zip": "27601"
+  },
+  "920": {
+    "city": "Green Bay",
+    "state": "WI",
+    "zip": "54301"
+  },
+  "925": {
+    "city": "Concord",
+    "state": "CA",
+    "zip": "94520"
+  },
+  "928": {
+    "city": "Flagstaff",
+    "state": "AZ",
+    "zip": "86001"
+  },
+  "929": {
+    "city": "Bronx",
+    "state": "NY",
+    "zip": "10451"
+  },
+  "930": {
+    "city": "Jeffersonville",
+    "state": "IN",
+    "zip": "47130"
+  },
+  "931": {
+    "city": "Clarksville",
+    "state": "TN",
+    "zip": "37040"
+  },
+  "936": {
+    "city": "Lufkin",
+    "state": "TX",
+    "zip": "75901"
+  },
+  "937": {
+    "city": "Dayton",
+    "state": "OH",
+    "zip": "45402"
+  },
+  "938": {
+    "city": "Huntsville",
+    "state": "AL",
+    "zip": "35801"
+  },
+  "940": {
+    "city": "Denton",
+    "state": "TX",
+    "zip": "76201"
+  },
+  "941": {
+    "city": "Sarasota",
+    "state": "FL",
+    "zip": "34236"
+  },
+  "945": {
+    "city": "Bellaire",
+    "state": "TX",
+    "zip": "77401"
+  },
+  "947": {
+    "city": "Bloomfield Hills",
+    "state": "MI",
+    "zip": "48301"
+  },
+  "949": {
+    "city": "Irvine",
+    "state": "CA",
+    "zip": "92602"
+  },
+  "951": {
+    "city": "Riverside",
+    "state": "CA",
+    "zip": "92501"
+  },
+  "952": {
+    "city": "Eden Prairie",
+    "state": "MN",
+    "zip": "55344"
+  },
+  "954": {
+    "city": "Fort Lauderdale",
+    "state": "FL",
+    "zip": "33301"
+  },
+  "956": {
+    "city": "McAllen",
+    "state": "TX",
+    "zip": "78501"
+  },
+  "959": {
+    "city": "Hartford",
+    "state": "CT",
+    "zip": "06103"
+  },
+  "970": {
+    "city": "Fort Collins",
+    "state": "CO",
+    "zip": "80521"
+  },
+  "971": {
+    "city": "Portland",
+    "state": "OR",
+    "zip": "97204"
+  },
+  "972": {
+    "city": "McKinney",
+    "state": "TX",
+    "zip": "75069"
+  },
+  "973": {
+    "city": "Newark",
+    "state": "NJ",
+    "zip": "07102"
+  },
+  "978": {
+    "city": "Lowell",
+    "state": "MA",
+    "zip": "01852"
+  },
+  "979": {
+    "city": "College Station",
+    "state": "TX",
+    "zip": "77840"
+  },
+  "980": {
+    "city": "Charlotte",
+    "state": "NC",
+    "zip": "28202"
+  },
+  "984": {
+    "city": "Raleigh",
+    "state": "NC",
+    "zip": "27601"
+  },
+  "985": {
+    "city": "Hammond",
+    "state": "LA",
+    "zip": "70401"
+  },
+  "986": {
+    "city": "Boise",
+    "state": "ID",
+    "zip": "83702"
+  },
+  "989": {
+    "city": "Midland",
+    "state": "MI",
+    "zip": "48640"
+  }
+}
