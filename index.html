@@ -188,15 +188,27 @@
 
       <!-- HubSpot Form Embed -->
       <script src="https://js-na2.hsforms.net/forms/embed/244871990.js" defer></script>
-      <div class="hs-form-frame" data-region="na2" data-form-id="e08bad25-75e3-467b-bf9c-dd772c4f890e" data-portal-id="244871990"></div>
+
+      <div class="hs-form-frame"
+          data-region="na2"
+          data-form-id="e08bad25-75e3-467b-bf9c-dd772c4f890e"
+          data-portal-id="244871990"></div>
+
+      <script>
+        window.addEventListener("message", function(event) {
+          if (event.data.type === "hsFormCallback" && event.data.eventName === "onFormSubmitted") {
+            window.location.href = "https://allaccessfundingus.com/thank-you";
+          }
+        });
+      </script>
+
+
 
     </div>
   </div>
 </section>
 
-<p style="text-align: center;">
-  <a href="https://www.myscoreiq.com/industry-score-preferred.aspx?offercode=432142EA" target="_blank">To get your credit report for $1 Click here</a>
-</p>
+
 
 <!-- Customer Testimonials Section -->
 <section id="testimonials" style="padding: 2rem; background-color: #f9f9f9; text-align: center;">
@@ -300,19 +312,7 @@
     }
   }
 
-  // Try to attach immediately
-  if(!attachListener()) {
-    // Poll until we succeed or timeout
-    const intervalId = setInterval(function(){
-      if(attachListener() || (Date.now() - startTime) > POLL_TIMEOUT){
-        clearInterval(intervalId);
-        if(Date.now() - startTime > POLL_TIMEOUT) {
-          console.warn('Stopped polling for HubSpot form — listener not attached.');
-        }
-      }
-    }, POLL_INTERVAL);
-  }
-
+  
 })();
 </script>
 
