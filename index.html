@@ -213,6 +213,8 @@
         data.id || data.formId || data.formGuid ||
         (data.payload && (data.payload.formId || data.payload.formGuid));
 
+console.log("HS message origin:", event.origin, "data:", data);
+
       if (isHsCallback && isSubmitEvent && (!formId || formId === TARGET_FORM_ID)) {
         window.location.assign(https://allaccessfundingus.com/thanks.html);
       }
