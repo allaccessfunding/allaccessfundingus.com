@@ -186,53 +186,95 @@
       All Access Funding US will never push you into a lending deal that doesn't make sense just to earn a commission.  That is why our clients trust us.
       </span>
 
-<!-- HubSpot Form Embed -->
-<script>
-  (function () {
-    const THANK_YOU_URL = "https://allaccessfundingus.com/thank-you";
-    const TARGET_FORM_ID = "e08bad25-75e3-467b-bf9c-dd772c4f890e";
-
-    window.addEventListener("message", function (event) {
-      // HubSpot may send an object OR a JSON string
-      let data = event.data;
-      if (typeof data === "string") {
-        try { data = JSON.parse(data); } catch (e) { return; }
-      }
-      if (!data) return;
-
-      // Common HubSpot callback shape per docs
-      const isHsCallback = data.type === "hsFormCallback";
-      const isSubmitEvent =
-        data.eventName === "onFormSubmitted" ||
-        data.eventName === "onFormSubmit" ||
-        data.eventName === "hsFormCallback:onFormSubmitted" ||
-        data.eventName === "hsFormCallback:onFormSubmit";
-
-      // Try to identify the form (HubSpot uses different keys in different embeds)
-      const formId =
-        data.id || data.formId || data.formGuid ||
-        (data.payload && (data.payload.formId || data.payload.formGuid));
-
-console.log("HS message origin:", event.origin, "data:", data);
-
-      if (isHsCallback && isSubmitEvent && (!formId || formId === TARGET_FORM_ID)) {
-        window.location.assign(https://allaccessfundingus.com/thanks.html);
-      }
-    });
-  })();
-</script>
-
+<!-- HubSpot Form Embed + Redirect (paste this whole block where your form should appear) -->
 <script src="https://js-na2.hsforms.net/forms/embed/244871990.js" defer></script>
 
 <div class="hs-form-frame"
-     data-region="na2"
-     data-form-id="e08bad25-75e3-467b-bf9c-dd772c4f890e"
-     data-portal-id="244871990"></div>
+  data-region="na2"
+  data-form-id="e08bad25-75e3-467b-bf9c-dd772c4f890e"
+  data-portal-id="244871990"></div>
 
 
-    </div>
-  </div>
-</section>
+<script>
+(function () {
+  const THANK_YOU_URL = "https://allaccessfundingus.com/thanks.html";
+  const FORM_ID = "e08bad25-75e3-467b-bf9c-dd772c4f890e";
+  let redirected = false;
+
+  function redirectNow() {
+    if (redirected) return;
+    redirected = true;
+    window.location.assign(THANK_YOU_URL);
+  }
+
+  // A) Try HubSpot postMessage callback (if available)
+  window.addEventListener("message", function (event) {
+    let data = event.data;
+
+    // HubSpot sometimes sends JSON as a string
+    if (typeof data === "string") {
+      try { data = JSON.parse(data); } catch (e) { return; }
+    }
+    if (!data || typeof data !== "object") return;
+
+    const isHsCallback = data.type === "hsFormCallback";
+    const isSubmitEvent =
+      data.eventName === "onFormSubmitted" ||
+      data.eventName === "onFormSubmit" ||
+      data.eventName === "hsFormCallback:onFormSubmitted" ||
+      data.eventName === "hsFormCallback:onFormSubmit";
+
+    const formId =
+      data.id || data.formId || data.formGuid ||
+      (data.payload && (data.payload.formId || data.payload.formGuid));
+
+    if (isHsCallback && isSubmitEvent && (!formId || formId === FORM_ID)) {
+      redirectNow();
+    }
+  });
+
+  // B) Fallback: detect success text inside the injected iframe
+  function attachIframeWatcher() {
+    const host = document.querySelector('.hs-form-frame[data-form-id="' + FORM_ID + '"]');
+    if (!host) return;
+
+    const observer = new MutationObserver(() => {
+      const iframe = host.querySelector("iframe");
+      if (!iframe) return;
+
+      observer.disconnect();
+
+      const timer = setInterval(() => {
+        if (redirected) { clearInterval(timer); return; }
+
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          const text = (doc && doc.body && (doc.body.innerText || doc.body.textContent)) || "";
+
+          // Matches the success state you showed: "Form submitted" / "Thank you..."
+          if (/form submitted|thank you/i.test(text)) {
+            clearInterval(timer);
+            redirectNow();
+          }
+        } catch (e) {
+          // Cross-origin access can be blocked in some cases; ignore and keep trying.
+        }
+      }, 400);
+
+      // Stop after 5 minutes
+      setTimeout(() => clearInterval(timer), 5 * 60 * 1000);
+    });
+
+    observer.observe(host, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", attachIframeWatcher);
+  } else {
+    attachIframeWatcher();
+  }
+})();
+</script>
 
 
 
