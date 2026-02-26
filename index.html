@@ -186,22 +186,46 @@
       All Access Funding US will never push you into a lending deal that doesn't make sense just to earn a commission.  That is why our clients trust us.
       </span>
 
-      <!-- HubSpot Form Embed -->
-      <script src="https://js-na2.hsforms.net/forms/embed/244871990.js" defer></script>
+<!-- HubSpot Form Embed -->
+<script>
+  (function () {
+    const THANK_YOU_URL = "https://allaccessfundingus.com/thank-you";
+    const TARGET_FORM_ID = "e08bad25-75e3-467b-bf9c-dd772c4f890e";
 
-      <div class="hs-form-frame"
-          data-region="na2"
-          data-form-id="e08bad25-75e3-467b-bf9c-dd772c4f890e"
-          data-portal-id="244871990"></div>
+    window.addEventListener("message", function (event) {
+      // HubSpot may send an object OR a JSON string
+      let data = event.data;
+      if (typeof data === "string") {
+        try { data = JSON.parse(data); } catch (e) { return; }
+      }
+      if (!data) return;
 
-      <script>
-        window.addEventListener("message", function(event) {
-          if (event.data.type === "hsFormCallback" && event.data.eventName === "onFormSubmitted") {
-            window.location.href = "https://allaccessfundingus.com/thank-you";
-          }
-        });
-      </script>
+      // Common HubSpot callback shape per docs
+      const isHsCallback = data.type === "hsFormCallback";
+      const isSubmitEvent =
+        data.eventName === "onFormSubmitted" ||
+        data.eventName === "onFormSubmit" ||
+        data.eventName === "hsFormCallback:onFormSubmitted" ||
+        data.eventName === "hsFormCallback:onFormSubmit";
 
+      // Try to identify the form (HubSpot uses different keys in different embeds)
+      const formId =
+        data.id || data.formId || data.formGuid ||
+        (data.payload && (data.payload.formId || data.payload.formGuid));
+
+      if (isHsCallback && isSubmitEvent && (!formId || formId === TARGET_FORM_ID)) {
+        window.location.assign(https://allaccessfundingus.com/thanks.html);
+      }
+    });
+  })();
+</script>
+
+<script src="https://js-na2.hsforms.net/forms/embed/244871990.js" defer></script>
+
+<div class="hs-form-frame"
+     data-region="na2"
+     data-form-id="e08bad25-75e3-467b-bf9c-dd772c4f890e"
+     data-portal-id="244871990"></div>
 
 
     </div>
