@@ -333,11 +333,12 @@ window.addEventListener('message', function(event) {
 </script>
 
 
+
 <script>
 (function () {
   const LOOKUP_URL = "https://allaccessfundingus.com/area_code_lookup_full.json";
-
   let lookupCache = null;
+
   async function getLookup() {
     if (lookupCache) return lookupCache;
     const res = await fetch(LOOKUP_URL, { cache: "no-store" });
@@ -355,20 +356,20 @@ window.addEventListener('message', function(event) {
     return d;
   }
 
-  function setField(form, name, value) {
-    const el = form.querySelector(`[name="${name}"]`);
+  function setField(doc, name, value) {
+    const el = doc.querySelector(`[name="${name}"]`);
     if (el) el.value = value || "";
   }
 
-  async function enrich(form) {
-    const phoneInput = form.querySelector('input[name="phone"]');
-    if (!phoneInput) return;
+  async function enrich(iframeDoc) {
+    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
+    if (!phoneEl) return;
 
-    const d = normalizeTo10(digitsOnly(phoneInput.value));
+    const d = normalizeTo10(digitsOnly(phoneEl.value));
     if (d.length < 10) {
-      setField(form, "city", "");
-      setField(form, "state", "");
-      setField(form, "zip", "");
+      setField(iframeDoc, "city", "");
+      setField(iframeDoc, "state", "");
+      setField(iframeDoc, "zip", "");
       return;
     }
 
@@ -377,34 +378,65 @@ window.addEventListener('message', function(event) {
     try {
       const lookup = await getLookup();
       const rec = lookup[area] || {};
-
-      setField(form, "city", rec.city || "");
-      setField(form, "state", rec.state || "");
-      setField(form, "zip", rec.zip || "");
+      setField(iframeDoc, "city", rec.city || "");
+      setField(iframeDoc, "state", rec.state || "");
+      setField(iframeDoc, "zip", rec.zip || "");
     } catch (e) {
-      // If lookup fails, don’t block submission—just leave fields blank
-      setField(form, "city", "");
-      setField(form, "state", "");
-      setField(form, "zip", "");
+      // If lookup fails, don’t block submission—just clear the values
+      setField(iframeDoc, "city", "");
+      setField(iframeDoc, "state", "");
+      setField(iframeDoc, "zip", "");
     }
   }
 
-  // HubSpot embed callback
+  function hookIntoIframe() {
+    const iframe = document.querySelector("iframe.hs-form-iframe");
+    if (!iframe) return false;
+
+    // Wait until iframe doc is accessible and form exists
+    let iframeDoc;
+    try {
+      iframeDoc = iframe.contentWindow.document;
+    } catch (e) {
+      return false;
+    }
+
+    const form = iframeDoc.querySelector("form");
+    if (!form) return false;
+
+    // Prefetch lookup once (optional)
+    getLookup().catch(() => {});
+
+    // Attach listeners once
+    if (form.__areaCodeHooked) return true;
+    form.__areaCodeHooked = true;
+
+    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
+    if (phoneEl) {
+      phoneEl.addEventListener("input", () => enrich(iframeDoc));
+      phoneEl.addEventListener("blur", () => enrich(iframeDoc));
+    }
+
+    // Ensure it runs right before submit too
+    form.addEventListener("submit", () => enrich(iframeDoc));
+
+    // Run once for autofill cases
+    enrich(iframeDoc);
+
+    return true;
+  }
+
+  // HubSpot sends a postMessage when the form is ready.
   window.addEventListener("message", function (event) {
     if (!event.data || event.data.type !== "hsFormCallback") return;
     if (event.data.eventName !== "onFormReady") return;
 
-    const form = document.querySelector("form.hs-form");
-    if (!form) return;
-
-    // Prefetch in background so typing feels instant
-    getLookup().catch(() => {});
-
-    // Run once (autofill) + on input + right before submit
-    enrich(form);
-    const phoneInput = form.querySelector('input[name="phone"]');
-    if (phoneInput) phoneInput.addEventListener("input", () => enrich(form));
-    form.addEventListener("submit", () => enrich(form));
+    // Try to hook immediately; if iframe not ready yet, retry briefly
+    let tries = 0;
+    const timer = setInterval(function () {
+      tries++;
+      if (hookIntoIframe() || tries > 30) clearInterval(timer); // ~3 seconds max
+    }, 100);
   });
 })();
 </script>
