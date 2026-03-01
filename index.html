@@ -42,7 +42,6 @@
     footer { background: #0b4f2d; color: #d1fae5; text-align: center; padding: 2rem 1rem; font-size: 0.9rem; margin-top: 2rem; }
     @media (max-width: 900px) { .features { grid-template-columns: 1fr; } .products { grid-template-columns: 1fr; } }
 
-
 .logo-container {
   position: relative;
   display: inline-block;
@@ -107,7 +106,6 @@
   </div>
 </section>
 
-
 <div style="
   margin: 50px auto;
   max-width: 900px;
@@ -168,7 +166,6 @@
   </div>
 </section>
 
-
 <section id="contact">
   <div class="container">
     <div class="form-container">
@@ -188,24 +185,23 @@
       </span>
       <br>
 
-      <!-- HubSpot Legacy Form Embed (NEW) -->
-      <div id="hubspot-legacy-form"></div>
+<!-- HubSpot v2 Embed -->
+<script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
 
-      <script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
-      <script>
-        hbspt.forms.create({
-          portalId: "244871990",
-          formId: "521349dd-5d6e-405a-a14b-5afd28edc3fe",
-          region: "na2",
-          target: "#hubspot-legacy-form"
-        });
-      </script>
-      <!-- End HubSpot Legacy Form Embed -->
+<div id="hubspot-form"></div>
+
+<script>
+  hbspt.forms.create({
+    region: "na2",
+    portalId: "244871990",
+    formId: "521349dd-5d6e-405a-a14b-5afd28edc3fe",
+    target: "#hubspot-form"
+  });
+</script>
 
     </div> <!-- /.form-container -->
   </div> <!-- /.container -->
 </section>
-
 
 <!-- Customer Testimonials Section -->
 <section id="testimonials" style="padding: 2rem; background-color: #f9f9f9; text-align: center;">
@@ -275,173 +271,6 @@
   // Cycle every 4 seconds
   setInterval(showNextTestimonial, 4000);
 </script>
-
-<script>
-(function(){
-  console.log('Starting HubSpot conversion polling listener');
-
-  // Maximum time to keep polling (ms)
-  const POLL_TIMEOUT = 30000; // 30 seconds
-  const POLL_INTERVAL = 500;  // check every 0.5s
-  const startTime = Date.now();
-
-  function attachListener() {
-    try {
-      window.addEventListener('message', function(event) {
-        if (
-          event.data &&
-          event.data.type === 'hsFormCallback' &&
-          event.data.eventName === 'onFormSubmit'
-        ) {
-          console.log('HubSpot form submitted — firing Google Ads conversion');
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
-            'value': 1.0,
-            'currency': 'USD'
-          });
-        }
-      });
-      console.log('HubSpot conversion listener attached');
-      return true;
-    } catch(e) {
-      console.warn('Failed to attach HubSpot listener, retrying...', e);
-      return false;
-    }
-  }
-
-  
-})();
-</script>
-
-<script>
-window.addEventListener('message', function(event) {
-  if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
-    var form = document.querySelector('form.hs-form');
-    if (!form) return;
-
-    // Prevent duplicate injection
-    if (form.querySelector('input[name="submission_id"]')) return;
-
-    var hiddenInput = document.createElement('input');
-    hiddenInput.type = 'hidden';
-    hiddenInput.name = 'submission_id';
-    hiddenInput.value = Date.now(); // unique per submission
-
-    form.appendChild(hiddenInput);
-  }
-});
-</script>
-
-
-
-<script>
-(function () {
-  const LOOKUP_URL = "https://allaccessfundingus.com/area_code_lookup_full.json";
-  let lookupCache = null;
-
-  async function getLookup() {
-    if (lookupCache) return lookupCache;
-    const res = await fetch(LOOKUP_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error("Lookup fetch failed: " + res.status);
-    lookupCache = await res.json();
-    return lookupCache;
-  }
-
-  function digitsOnly(v) {
-    return String(v || "").replace(/\D/g, "");
-  }
-
-  function normalizeTo10(d) {
-    if (d.length === 11 && d.startsWith("1")) return d.slice(1);
-    return d;
-  }
-
-  function setField(doc, name, value) {
-    const el = doc.querySelector(`[name="${name}"]`);
-    if (el) el.value = value || "";
-  }
-
-  async function enrich(iframeDoc) {
-    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
-    if (!phoneEl) return;
-
-    const d = normalizeTo10(digitsOnly(phoneEl.value));
-    if (d.length < 10) {
-      setField(iframeDoc, "city", "");
-      setField(iframeDoc, "state", "");
-      setField(iframeDoc, "zip", "");
-      return;
-    }
-
-    const area = d.slice(0, 3);
-
-    try {
-      const lookup = await getLookup();
-      const rec = lookup[area] || {};
-      setField(iframeDoc, "city", rec.city || "");
-      setField(iframeDoc, "state", rec.state || "");
-      setField(iframeDoc, "zip", rec.zip || "");
-    } catch (e) {
-      // If lookup fails, don’t block submission—just clear the values
-      setField(iframeDoc, "city", "");
-      setField(iframeDoc, "state", "");
-      setField(iframeDoc, "zip", "");
-    }
-  }
-
-  function hookIntoIframe() {
-    const iframe = document.querySelector("iframe.hs-form-iframe");
-    if (!iframe) return false;
-
-    // Wait until iframe doc is accessible and form exists
-    let iframeDoc;
-    try {
-      iframeDoc = iframe.contentWindow.document;
-    } catch (e) {
-      return false;
-    }
-
-    const form = iframeDoc.querySelector("form");
-    if (!form) return false;
-
-    // Prefetch lookup once (optional)
-    getLookup().catch(() => {});
-
-    // Attach listeners once
-    if (form.__areaCodeHooked) return true;
-    form.__areaCodeHooked = true;
-
-    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
-    if (phoneEl) {
-      phoneEl.addEventListener("input", () => enrich(iframeDoc));
-      phoneEl.addEventListener("blur", () => enrich(iframeDoc));
-    }
-
-    // Ensure it runs right before submit too
-    form.addEventListener("submit", () => enrich(iframeDoc));
-
-    // Run once for autofill cases
-    enrich(iframeDoc);
-
-    return true;
-  }
-
-  // HubSpot sends a postMessage when the form is ready.
-  window.addEventListener("message", function (event) {
-    if (!event.data || event.data.type !== "hsFormCallback") return;
-    if (event.data.eventName !== "onFormReady") return;
-
-    // Try to hook immediately; if iframe not ready yet, retry briefly
-    let tries = 0;
-    const timer = setInterval(function () {
-      tries++;
-      if (hookIntoIframe() || tries > 30) clearInterval(timer); // ~3 seconds max
-    }, 100);
-  });
-})();
-</script>
-
-
 
 </body>
 </html>
