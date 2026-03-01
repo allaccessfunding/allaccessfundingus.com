@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Redirecting…</title>
+  <script>
+    (function () {
+      // Example: /c/444323026668
+      var path = window.location.pathname || "";
+      var m = path.match(/^\/c\/(\d+)\/*$/);
+
+      if (m && m[1]) {
+        var id = m[1];
+        var target = "https://app.hubspot.com/contacts/244871990/contact/" + encodeURIComponent(id);
+        window.location.replace(target);
+        return;
+      }
+
+      // Otherwise show a normal 404 message
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.innerHTML = "<h1>404</h1><p>Page not found.</p>";
+      });
+    })();
+  </script>
+</head>
+<body></body>
+</html>
