@@ -332,5 +332,84 @@ window.addEventListener('message', function(event) {
 });
 </script>
 
+
+<script>
+(function () {
+  const LOOKUP_URL = "https://allaccessfundingus.com/area_code_lookup_full.json";
+
+  let lookupCache = null;
+  async function getLookup() {
+    if (lookupCache) return lookupCache;
+    const res = await fetch(LOOKUP_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Lookup fetch failed: " + res.status);
+    lookupCache = await res.json();
+    return lookupCache;
+  }
+
+  function digitsOnly(v) {
+    return String(v || "").replace(/\D/g, "");
+  }
+
+  function normalizeTo10(d) {
+    if (d.length === 11 && d.startsWith("1")) return d.slice(1);
+    return d;
+  }
+
+  function setField(form, name, value) {
+    const el = form.querySelector(`[name="${name}"]`);
+    if (el) el.value = value || "";
+  }
+
+  async function enrich(form) {
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if (!phoneInput) return;
+
+    const d = normalizeTo10(digitsOnly(phoneInput.value));
+    if (d.length < 10) {
+      setField(form, "city", "");
+      setField(form, "state", "");
+      setField(form, "zip", "");
+      return;
+    }
+
+    const area = d.slice(0, 3);
+
+    try {
+      const lookup = await getLookup();
+      const rec = lookup[area] || {};
+
+      setField(form, "city", rec.city || "");
+      setField(form, "state", rec.state || "");
+      setField(form, "zip", rec.zip || "");
+    } catch (e) {
+      // If lookup fails, don’t block submission—just leave fields blank
+      setField(form, "city", "");
+      setField(form, "state", "");
+      setField(form, "zip", "");
+    }
+  }
+
+  // HubSpot embed callback
+  window.addEventListener("message", function (event) {
+    if (!event.data || event.data.type !== "hsFormCallback") return;
+    if (event.data.eventName !== "onFormReady") return;
+
+    const form = document.querySelector("form.hs-form");
+    if (!form) return;
+
+    // Prefetch in background so typing feels instant
+    getLookup().catch(() => {});
+
+    // Run once (autofill) + on input + right before submit
+    enrich(form);
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if (phoneInput) phoneInput.addEventListener("input", () => enrich(form));
+    form.addEventListener("submit", () => enrich(form));
+  });
+})();
+</script>
+
+
+
 </body>
 </html>
