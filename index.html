@@ -257,6 +257,7 @@
   <br><a href="https://allaccessfundingus.com/privacy-policy.html">Privacy Policy</a>
 </footer>
 
+
 <script>
   // Simple testimonial carousel
   const testimonials = document.querySelectorAll('.testimonial');
@@ -271,6 +272,59 @@
   // Cycle every 4 seconds
   setInterval(showNextTestimonial, 4000);
 </script>
+
+
+
+
+<script>
+(function () {
+  const PIPEDREAM_URL = "https://eou0atj5p5vh32r.m.pipedream.net"; // <-- your webhook
+
+  function firstNonEmpty(formEl, name) {
+    const els = formEl.querySelectorAll(`[name="${name}"]`);
+    for (const el of els) {
+      const v = (el && el.value != null) ? String(el.value).trim() : "";
+      if (v) return v;
+    }
+    return "";
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data || event.data.type !== "hsFormCallback") return;
+    if (event.data.eventName !== "onFormSubmit") return;
+
+    const formEl = document.querySelector("form.hs-form");
+    if (!formEl) return;
+
+    const payload = {
+      email: firstNonEmpty(formEl, "email"),
+      firstname: firstNonEmpty(formEl, "firstname"),
+      lastname: firstNonEmpty(formEl, "lastname"),
+      phone: firstNonEmpty(formEl, "phone"),
+      message: firstNonEmpty(formEl, "message"),
+
+      credit_score: firstNonEmpty(formEl, "credit_score"),
+      business_type: firstNonEmpty(formEl, "business_type"),
+
+      inferred_city: firstNonEmpty(formEl, "inferred_city"),
+      inferred_state: firstNonEmpty(formEl, "inferred_state"),
+      inferred_zip: firstNonEmpty(formEl, "inferred_zip"),
+
+      page_url: window.location.href,
+      submitted_at: new Date().toISOString()
+    };
+
+    fetch(PIPEDREAM_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).catch(console.error);
+  });
+})();
+</script>
+
+
+
 
 </body>
 </html>
