@@ -42,6 +42,7 @@
     footer { background: #0b4f2d; color: #d1fae5; text-align: center; padding: 2rem 1rem; font-size: 0.9rem; margin-top: 2rem; }
     @media (max-width: 900px) { .features { grid-template-columns: 1fr; } .products { grid-template-columns: 1fr; } }
 
+
 .logo-container {
   position: relative;
   display: inline-block;
@@ -80,6 +81,45 @@
   max-width: 100%;    /* allow full width of the container */
 }
 
+/* Custom form styling (non-HubSpot) */
+.custom-form input,
+.custom-form select,
+.custom-form textarea{
+  width:100%;
+  padding:12px 14px;
+  margin:10px 0;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  font-size:14px;
+  outline:none;
+}
+.custom-form input:focus,
+.custom-form select:focus,
+.custom-form textarea:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.18);
+}
+.custom-form button{
+  width:100%;
+  padding:12px 16px;
+  margin-top:10px;
+  border:none;
+  border-radius:999px;
+  background: var(--accent);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+.custom-form button:disabled{
+  opacity:0.7;
+  cursor:not-allowed;
+}
+.form-status{
+  margin-top:10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align:center;
+}
 </style>
 
 </head>
@@ -105,6 +145,7 @@
     </div>
   </div>
 </section>
+
 
 <div style="
   margin: 50px auto;
@@ -166,6 +207,7 @@
   </div>
 </section>
 
+
 <section id="contact">
   <div class="container">
     <div class="form-container">
@@ -186,132 +228,92 @@
       <br>
 
 
+<!-- Custom Funding Form (posts to Pipedream) -->
+<form id="funding-form" class="custom-form" novalidate>
+  <input type="text" name="firstname" placeholder="First Name" autocomplete="given-name" required>
+  <input type="text" name="lastname" placeholder="Last Name" autocomplete="family-name" required>
+  <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+  <input type="tel" name="phone" placeholder="Phone" autocomplete="tel" required>
 
+  <select name="credit_score" required>
+    <option value="" disabled selected>Credit Score</option>
+    <option value="500-579">500–579</option>
+    <option value="580-619">580–619</option>
+    <option value="620-679">620–679</option>
+    <option value="680 to 719">680–719</option>
+    <option value="720+">720+</option>
+  </select>
 
+  <select name="business_type" required>
+    <option value="" disabled selected>Business Type</option>
+    <option value="Startup">Startup</option>
+    <option value="Existing">Existing</option>
+  </select>
 
+  <textarea name="message" rows="4" placeholder="Message (optional)"></textarea>
 
-
-<!-- Custom Lead Form (posts to Pipedream, then redirects to thanks.html) -->
-<form id="aaf-lead-form" autocomplete="on" style="margin-top:14px;">
-  <div style="display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px;">
-    <input name="firstname" type="text" placeholder="First name" required
-           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
-    <input name="lastname" type="text" placeholder="Last name" required
-           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
-    <input name="email" type="email" placeholder="Email" required
-           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
-    <input name="phone" type="tel" placeholder="Phone (e.g., 631-555-1212)" required
-           inputmode="tel" autocomplete="tel"
-           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
-    <select name="credit_score" required
-            style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px; background:#fff;">
-      <option value="" disabled selected>Credit score</option>
-      <option>720+</option>
-      <option>680 to 719</option>
-      <option>650 to 679</option>
-      <option>600 to 649</option>
-      <option>Below 600</option>
-    </select>
-    <select name="business_type" required
-            style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px; background:#fff;">
-      <option value="" disabled selected>Business type</option>
-      <option value="Startup">Startup</option>
-      <option value="Existing">Existing</option>
-    </select>
-
-    <textarea name="message" placeholder="Tell us what you need funding for (optional)" rows="4"
-              style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px; resize:vertical;"></textarea>
-
-    <div id="aaf-form-error" style="display:none; color:#b91c1c; font-size:13px; margin-top:2px;"></div>
-
-    <button id="aaf-submit" type="submit"
-            style="width:100%; padding:13px 14px; border:none; border-radius:12px; background:var(--accent); color:#fff; font-size:15px; font-weight:700; cursor:pointer;">
-      Submit Funding Request
-    </button>
-  <div id="aaf-form-status" style="margin-top:10px; font-size:13px; color:#b91c1c;"></div>
-
-
-    <div style="color:#6b7280; font-size:12px; text-align:center; margin-top:2px;">
-      By submitting, you agree to be contacted by phone/text/email. Message & data rates may apply.
-    </div>
-  </div>
+  <button type="submit" id="funding-submit">Submit Request</button>
+  <div id="funding-status" class="form-status" aria-live="polite"></div>
 </form>
+
 <script>
-(function(){
-  const WEBHOOK_URL = "https://eoamnji4ux4621y.m.pipedream.net"; // Pipedream webhook (hardcoded)
-  const REDIRECT_URL = "thanks.html";
+  (function () {
+    const WEBHOOK_URL = "https://eoamnji4ux4621y.m.pipedream.net";
+    const REDIRECT_URL = "thanks.html";
 
-  const form = document.getElementById("aaf-lead-form");
-  if (!form) return;
+    const form = document.getElementById("funding-form");
+    const btn = document.getElementById("funding-submit");
+    const statusEl = document.getElementById("funding-status");
 
-  function serializeForm(f) {
-    const data = {};
-    new FormData(f).forEach((value, key) => {
-      // Normalize values to strings
-      data[key] = (value === null || value === undefined) ? "" : String(value).trim();
-    });
-    data.page_url = window.location.href;
-    data.submitted_at = new Date().toISOString();
-    return data;
-  }
+    if (!form) return;
 
-  form.addEventListener("submit", async function(e){
-    e.preventDefault();
+    function setStatus(msg) {
+      if (statusEl) statusEl.textContent = msg || "";
+    }
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const statusEl = document.getElementById("aaf-form-status");
-    const originalBtnText = submitBtn ? submitBtn.textContent : null;
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    try {
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Submitting..."; }
-      if (statusEl) { statusEl.textContent = ""; }
-
-      const payload = serializeForm(form);
-
-      // Fire conversion immediately (does not block submission)
-      try {
-        if (typeof gtag === "function") {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
-            'value': 1.0,
-            'currency': 'USD'
-          });
+      const required = ["firstname", "lastname", "email", "phone", "credit_score", "business_type"];
+      for (const name of required) {
+        const el = form.querySelector('[name="' + name + '"]');
+        if (!el || !String(el.value || "").trim()) {
+          if (el && el.focus) el.focus();
+          setStatus("Please complete all required fields.");
+          return;
         }
-      } catch(_) {}
+      }
 
-      // POST to Pipedream (use text/plain to avoid CORS preflight problems)
-      const resp = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=UTF-8" },
-        body: JSON.stringify(payload),
-        keepalive: true,
-        mode: "cors"
-      });
+      if (btn) btn.disabled = true;
+      setStatus("Submitting...");
 
-      // If Pipedream rejects, still redirect but show a quick message in console
-      if (!resp.ok) {
-        const t = await resp.text().catch(() => "");
-        console.warn("Pipedream non-200:", resp.status, t.slice(0, 300));
+      const data = {};
+      new FormData(form).forEach((v, k) => { data[k] = String(v); });
+      data.page_url = window.location.href;
+
+      // Send as text/plain to avoid CORS preflight
+      const body = JSON.stringify(data);
+
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: body,
+          keepalive: true
+        });
+      } catch (err) {
+        console.warn("Webhook post failed:", err);
       }
 
       window.location.href = REDIRECT_URL;
-
-    } catch (err) {
-      console.warn("Lead submit failed:", err);
-      if (statusEl) {
-        statusEl.textContent = "Sorry — something went wrong. Please call (631) 209-7843.";
-      }
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText || "Submit"; }
-    }
-  });
-})();
+    });
+  })();
 </script>
 
 
-</div><!-- /.form-container -->
-</div><!-- /.container -->
-</section><!-- /#contact -->
-
+    </div> <!-- /.form-container -->
+  </div> <!-- /.container -->
+</section>
 
 
 <!-- Customer Testimonials Section -->
@@ -368,7 +370,6 @@
   <br><a href="https://allaccessfundingus.com/privacy-policy.html">Privacy Policy</a>
 </footer>
 
-
 <script>
   // Simple testimonial carousel
   const testimonials = document.querySelectorAll('.testimonial');
@@ -382,6 +383,246 @@
 
   // Cycle every 4 seconds
   setInterval(showNextTestimonial, 4000);
+</script>
+
+<script>
+(function(){
+  console.log('Starting HubSpot conversion polling listener');
+
+  // Maximum time to keep polling (ms)
+  const POLL_TIMEOUT = 30000; // 30 seconds
+  const POLL_INTERVAL = 500;  // check every 0.5s
+  const startTime = Date.now();
+
+  function attachListener() {
+    try {
+      window.addEventListener('message', function(event) {
+        if (
+          event.data &&
+          event.data.type === 'hsFormCallback' &&
+          event.data.eventName === 'onFormSubmit'
+        ) {
+          console.log('HubSpot form submitted — firing Google Ads conversion');
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
+      });
+      console.log('HubSpot conversion listener attached');
+      return true;
+    } catch(e) {
+      console.warn('Failed to attach HubSpot listener, retrying...', e);
+      return false;
+    }
+  }
+
+  
+})();
+</script>
+
+<script>
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+    var form = document.querySelector('form.hs-form');
+    if (!form) return;
+
+    // Prevent duplicate injection
+    if (form.querySelector('input[name="submission_id"]')) return;
+
+    var hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 'submission_id';
+    hiddenInput.value = Date.now(); // unique per submission
+
+    form.appendChild(hiddenInput);
+  }
+});
+</script>
+
+
+
+<script>
+(function () {
+  const LOOKUP_URL = "https://allaccessfundingus.com/area_code_lookup_full.json";
+  let lookupCache = null;
+
+  async function getLookup() {
+    if (lookupCache) return lookupCache;
+    const res = await fetch(LOOKUP_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Lookup fetch failed: " + res.status);
+    lookupCache = await res.json();
+    return lookupCache;
+  }
+
+  function digitsOnly(v) {
+    return String(v || "").replace(/\D/g, "");
+  }
+
+  function normalizeTo10(d) {
+    if (d.length === 11 && d.startsWith("1")) return d.slice(1);
+    return d;
+  }
+
+  function setField(doc, name, value) {
+    const el = doc.querySelector(`[name="${name}"]`);
+    if (el) el.value = value || "";
+  }
+
+  async function enrich(iframeDoc) {
+    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
+    if (!phoneEl) return;
+
+    const d = normalizeTo10(digitsOnly(phoneEl.value));
+    if (d.length < 10) {
+      setField(iframeDoc, "city", "");
+      setField(iframeDoc, "state", "");
+      setField(iframeDoc, "zip", "");
+      return;
+    }
+
+    const area = d.slice(0, 3);
+
+    try {
+      const lookup = await getLookup();
+      const rec = lookup[area] || {};
+      setField(iframeDoc, "city", rec.city || "");
+      setField(iframeDoc, "state", rec.state || "");
+      setField(iframeDoc, "zip", rec.zip || "");
+    } catch (e) {
+      // If lookup fails, don’t block submission—just clear the values
+      setField(iframeDoc, "city", "");
+      setField(iframeDoc, "state", "");
+      setField(iframeDoc, "zip", "");
+    }
+  }
+
+  function hookIntoIframe() {
+    const iframe = document.querySelector("iframe.hs-form-iframe");
+    if (!iframe) return false;
+
+    // Wait until iframe doc is accessible and form exists
+    let iframeDoc;
+    try {
+      iframeDoc = iframe.contentWindow.document;
+    } catch (e) {
+      return false;
+    }
+
+    const form = iframeDoc.querySelector("form");
+    if (!form) return false;
+
+    // Prefetch lookup once (optional)
+    getLookup().catch(() => {});
+
+    // Attach listeners once
+    if (form.__areaCodeHooked) return true;
+    form.__areaCodeHooked = true;
+
+    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
+    if (phoneEl) {
+      phoneEl.addEventListener("input", () => enrich(iframeDoc));
+      phoneEl.addEventListener("blur", () => enrich(iframeDoc));
+    }
+
+    // Ensure it runs right before submit too
+    form.addEventListener("submit", () => enrich(iframeDoc));
+
+    // Run once for autofill cases
+    enrich(iframeDoc);
+
+    return true;
+  }
+
+
+<script>
+(function () {
+  const LOOKUP_URL = "https://allaccessfundingus.com/area_code_lookup_full.json";
+  let lookupCache = null;
+  let lookupPromise = null;
+
+  function digitsOnly(v) { return String(v || "").replace(/\D/g, ""); }
+  function normalizeTo10(d) { return (d.length === 11 && d.startsWith("1")) ? d.slice(1) : d; }
+
+  function loadLookup() {
+    if (lookupCache) return Promise.resolve(lookupCache);
+    if (lookupPromise) return lookupPromise;
+
+    lookupPromise = fetch(LOOKUP_URL, { cache: "no-store" })
+      .then(r => { if (!r.ok) throw new Error("Lookup fetch failed: " + r.status); return r.json(); })
+      .then(j => (lookupCache = j))
+      .catch(err => { lookupPromise = null; throw err; });
+
+    return lookupPromise;
+  }
+
+  async function enrich($form) {
+    const phoneVal = $form.find('input[name="phone"]').val();
+    const d = normalizeTo10(digitsOnly(phoneVal));
+
+    // Clear inferred fields if not enough digits yet
+    if (d.length < 10) {
+      $form.find('input[name="inferred_city"]').val("");
+      $form.find('input[name="inferred_state"]').val("");
+      $form.find('input[name="inferred_zip"]').val("");
+      return;
+    }
+
+    const area = d.slice(0, 3);
+
+    try {
+      const lookup = await loadLookup();
+      const rec = lookup[area] || {};
+
+      $form.find('input[name="inferred_city"]').val(rec.city || "");
+      $form.find('input[name="inferred_state"]').val(rec.state || "");
+      $form.find('input[name="inferred_zip"]').val(rec.zip || "");
+    } catch (e) {
+      // Don’t block submission if lookup fails
+      $form.find('input[name="inferred_city"]').val("");
+      $form.find('input[name="inferred_state"]').val("");
+      $form.find('input[name="inferred_zip"]').val("");
+    }
+  }
+
+
+  // Patch hbspt.forms.create so every form you create gets our callbacks
+  const wait = setInterval(function () {
+    if (!window.hbspt || !window.hbspt.forms || !window.hbspt.forms.create) return;
+
+    clearInterval(wait);
+
+    const originalCreate = window.hbspt.forms.create;
+    window.hbspt.forms.create = function (opts) {
+      const userOnReady = opts.onFormReady;
+      const userOnSubmit = opts.onFormSubmit;
+
+      opts.onFormReady = function ($form) {
+        // preload for speed
+        loadLookup().catch(() => {});
+
+        // run once for autofill
+        enrich($form);
+
+        // update as user types
+        const $phone = $form.find('input[name="phone"]');
+        $phone.on("input", () => enrich($form));
+        $phone.on("blur", () => enrich($form));
+
+        if (typeof userOnReady === "function") userOnReady($form);
+      };
+
+      opts.onFormSubmit = function ($form) {
+        // final best-effort fill at submit
+        enrich($form);
+        if (typeof userOnSubmit === "function") userOnSubmit($form);
+      };
+
+      return originalCreate.call(window.hbspt.forms, opts);
+    };
+  }, 50);
+})();
 </script>
 
 
