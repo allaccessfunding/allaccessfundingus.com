@@ -185,23 +185,61 @@
       </span>
       <br>
 
-<!-- HubSpot v2 Embed -->
-<script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
 
-<div id="hubspot-form"></div>
 
-<script>
-  hbspt.forms.create({
-    region: "na2",
-    portalId: "244871990",
-    formId: "521349dd-5d6e-405a-a14b-5afd28edc3fe",
-    target: "#hubspot-form"
-  });
-</script>
 
-    </div> <!-- /.form-container -->
-  </div> <!-- /.container -->
-</section>
+
+
+
+<!-- Custom Lead Form (posts to Pipedream, then redirects to thanks.html) -->
+<form id="aaf-lead-form" autocomplete="on" style="margin-top:14px;">
+  <div style="display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px;">
+    <input name="firstname" type="text" placeholder="First name" required
+           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
+    <input name="lastname" type="text" placeholder="Last name" required
+           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
+    <input name="email" type="email" placeholder="Email" required
+           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
+    <input name="phone" type="tel" placeholder="Phone (e.g., 631-555-1212)" required
+           inputmode="tel" autocomplete="tel"
+           style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px;">
+    <select name="credit_score" required
+            style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px; background:#fff;">
+      <option value="" disabled selected>Credit score</option>
+      <option>720+</option>
+      <option>680 to 719</option>
+      <option>650 to 679</option>
+      <option>600 to 649</option>
+      <option>Below 600</option>
+    </select>
+    <select name="business_type" required
+            style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px; background:#fff;">
+      <option value="" disabled selected>Business type</option>
+      <option value="Startup">Startup</option>
+      <option value="Existing">Existing</option>
+    </select>
+
+    <textarea name="message" placeholder="Tell us what you need funding for (optional)" rows="4"
+              style="width:100%; padding:12px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px; resize:vertical;"></textarea>
+
+    <div id="aaf-form-error" style="display:none; color:#b91c1c; font-size:13px; margin-top:2px;"></div>
+
+    <button id="aaf-submit" type="submit"
+            style="width:100%; padding:13px 14px; border:none; border-radius:12px; background:var(--accent); color:#fff; font-size:15px; font-weight:700; cursor:pointer;">
+      Submit Funding Request
+    </button>
+
+    <div style="color:#6b7280; font-size:12px; text-align:center; margin-top:2px;">
+      By submitting, you agree to be contacted by phone/text/email. Message & data rates may apply.
+    </div>
+  </div>
+</form>
+
+</div><!-- /.form-container -->
+</div><!-- /.container -->
+</section><!-- /#contact -->
+
+
 
 <!-- Customer Testimonials Section -->
 <section id="testimonials" style="padding: 2rem; background-color: #f9f9f9; text-align: center;">
@@ -271,54 +309,6 @@
 
   // Cycle every 4 seconds
   setInterval(showNextTestimonial, 4000);
-</script>
-
-
-<script>
-(function () {
-  const PIPEDREAM_URL = "https://eoamnji4ux4621y.m.pipedream.net"; // <-- your webhook
-
-  function firstNonEmpty(formEl, name) {
-    const els = formEl.querySelectorAll(`[name="${name}"]`);
-    for (const el of els) {
-      const v = (el && el.value != null) ? String(el.value).trim() : "";
-      if (v) return v;
-    }
-    return "";
-  }
-
-  window.addEventListener("message", function (event) {
-    if (!event.data || event.data.type !== "hsFormCallback") return;
-    if (event.data.eventName !== "onFormSubmit") return;
-
-    const formEl = document.querySelector("form.hs-form");
-    if (!formEl) return;
-
-    const payload = {
-      email: firstNonEmpty(formEl, "email"),
-      firstname: firstNonEmpty(formEl, "firstname"),
-      lastname: firstNonEmpty(formEl, "lastname"),
-      phone: firstNonEmpty(formEl, "phone"),
-      message: firstNonEmpty(formEl, "message"),
-
-      credit_score: firstNonEmpty(formEl, "credit_score"),
-      business_type: firstNonEmpty(formEl, "business_type"),
-
-      inferred_city: firstNonEmpty(formEl, "inferred_city"),
-      inferred_state: firstNonEmpty(formEl, "inferred_state"),
-      inferred_zip: firstNonEmpty(formEl, "inferred_zip"),
-
-      page_url: window.location.href,
-      submitted_at: new Date().toISOString()
-    };
-
-    fetch(PIPEDREAM_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    }).catch(console.error);
-  });
-})();
 </script>
 
 
