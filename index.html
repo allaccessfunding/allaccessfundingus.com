@@ -228,12 +228,85 @@
             style="width:100%; padding:13px 14px; border:none; border-radius:12px; background:var(--accent); color:#fff; font-size:15px; font-weight:700; cursor:pointer;">
       Submit Funding Request
     </button>
+  <div id="aaf-form-status" style="margin-top:10px; font-size:13px; color:#b91c1c;"></div>
+
 
     <div style="color:#6b7280; font-size:12px; text-align:center; margin-top:2px;">
       By submitting, you agree to be contacted by phone/text/email. Message & data rates may apply.
     </div>
   </div>
 </form>
+<script>
+(function(){
+  const WEBHOOK_URL = "https://eoamnji4ux4621y.m.pipedream.net"; // Pipedream webhook (hardcoded)
+  const REDIRECT_URL = "thanks.html";
+
+  const form = document.getElementById("aaf-lead-form");
+  if (!form) return;
+
+  function serializeForm(f) {
+    const data = {};
+    new FormData(f).forEach((value, key) => {
+      // Normalize values to strings
+      data[key] = (value === null || value === undefined) ? "" : String(value).trim();
+    });
+    data.page_url = window.location.href;
+    data.submitted_at = new Date().toISOString();
+    return data;
+  }
+
+  form.addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const statusEl = document.getElementById("aaf-form-status");
+    const originalBtnText = submitBtn ? submitBtn.textContent : null;
+
+    try {
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Submitting..."; }
+      if (statusEl) { statusEl.textContent = ""; }
+
+      const payload = serializeForm(form);
+
+      // Fire conversion immediately (does not block submission)
+      try {
+        if (typeof gtag === "function") {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
+      } catch(_) {}
+
+      // POST to Pipedream (use text/plain to avoid CORS preflight problems)
+      const resp = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify(payload),
+        keepalive: true,
+        mode: "cors"
+      });
+
+      // If Pipedream rejects, still redirect but show a quick message in console
+      if (!resp.ok) {
+        const t = await resp.text().catch(() => "");
+        console.warn("Pipedream non-200:", resp.status, t.slice(0, 300));
+      }
+
+      window.location.href = REDIRECT_URL;
+
+    } catch (err) {
+      console.warn("Lead submit failed:", err);
+      if (statusEl) {
+        statusEl.textContent = "Sorry — something went wrong. Please call (631) 209-7843.";
+      }
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText || "Submit"; }
+    }
+  });
+})();
+</script>
+
 
 </div><!-- /.form-container -->
 </div><!-- /.container -->
