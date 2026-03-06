@@ -81,136 +81,44 @@
   max-width: 100%;    /* allow full width of the container */
 }
 
-/* Custom form styling (non-HubSpot) */
-.custom-form input,
-.custom-form select,
-.custom-form textarea{
-  width:100%;
-  padding:12px 14px;
-  margin:10px 0;
-  border:1px solid #d1d5db;
-  border-radius:12px;
-  font-size:14px;
-  outline:none;
-}
-.custom-form input:focus,
-.custom-form select:focus,
-.custom-form textarea:focus{
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(34,197,94,0.18);
-}
-.custom-form button{
-  width:100%;
-  padding:12px 16px;
-  margin-top:10px;
-  border:none;
-  border-radius:999px;
-  background: var(--accent);
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
-}
-.custom-form button:disabled{
-  opacity:0.7;
-  cursor:not-allowed;
-}
-.form-status{
-  margin-top:10px;
-  color: var(--muted);
-  font-size: 0.95rem;
-  text-align:center;
-}
 
-/* ---------- Custom form polish ---------- */
-.custom-form .field { margin-top: 1rem; }
-.custom-form label { display:block; font-weight:600; margin-bottom:0.35rem; }
-.custom-form .req { color:#dc2626; margin-left:4px; }
-.custom-form input[type="text"],
-.custom-form input[type="email"],
-.custom-form input[type="tel"],
-.custom-form select,
-.custom-form textarea{
-  width:100%;
-  padding:0.85rem 0.9rem;
-  border:1px solid rgba(31,41,55,0.18);
-  border-radius:12px;
-  font-size:1rem;
-  background:#fff;
-  outline:none;
-}
-.custom-form textarea{ resize:vertical; min-height:110px; }
-.custom-form input:focus,
-.custom-form select:focus,
-.custom-form textarea:focus{
-  border-color: rgba(34,197,94,0.8);
-  box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
-}
-.custom-form .invalid{
-  border-color: rgba(220,38,38,0.9) !important;
-  box-shadow: 0 0 0 4px rgba(220,38,38,0.15) !important;
-}
-.custom-form .help{ font-size:0.85rem; color: var(--muted); margin-top:0.35rem; }
-.phone-wrap{
-  display:flex;
-  align-items:stretch;
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid rgba(31,41,55,0.18);
-}
-.phone-wrap:focus-within{
-  border-color: rgba(34,197,94,0.8);
-  box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
-}
-.phone-wrap .prefix{
-  display:flex;
-  align-items:center;
-  padding:0 0.9rem;
-  background:#f3faf6;
-  color:#111827;
-  font-weight:700;
-  border-right:1px solid rgba(31,41,55,0.12);
-}
-.phone-wrap input{
-  border:0 !important;
-  box-shadow:none !important;
-  border-radius:0 !important;
-}
-.radio-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:0.65rem;
-}
-@media (max-width: 520px){
-  .radio-grid{ grid-template-columns: 1fr; }
-}
-.radio{
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-  padding:0.7rem 0.8rem;
-  border:1px solid rgba(31,41,55,0.14);
-  border-radius:12px;
-  background:#fff;
-  cursor:pointer;
-  user-select:none;
-}
-.radio input{ margin:0; }
-.radio:hover{ box-shadow: 0 8px 18px rgba(0,0,0,0.06); }
-.custom-form button{
-  width:100%;
-  margin-top:1.2rem;
-  padding:1rem 1rem;
-  border:0;
-  border-radius:14px;
-  background: var(--accent);
-  color:#fff;
-  font-weight:700;
-  font-size:1.05rem;
-  cursor:pointer;
-}
-.custom-form button:disabled{ opacity:0.7; cursor:not-allowed; }
-.form-status{ margin-top:0.8rem; font-size:0.95rem; color: var(--muted); text-align:center; min-height:1.2em; }
-.fineprint{ margin-top:0.9rem; font-size:0.78rem; color: var(--muted); text-align:center; }
+    /* Contact form polish */
+    .form-container { max-width: 560px; }
+    .contact-logo { text-align:center; margin-bottom: 12px; }
+    .contact-logo img { height: 82px; width: auto; display:block; margin:0 auto; }
+    .contact-subhead { text-align:center; margin-bottom:10px; color: var(--muted); }
+    .contact-trustline { color:#0f6b3d; text-align:center; font-style:italic; margin:0 0 14px 0; font-size:0.95rem; }
+    .cred-box { margin:0 0 18px 0; padding:16px; border:1px solid #e5e7eb; border-radius:12px; background:#f9fafb; }
+    .cred-box h3 { margin:0 0 8px 0; color:#1d3f2a; font-size:17px; text-align:center; }
+    .cred-box p { font-size:13px; color:#4b5563; margin:0 0 10px 0; text-align:center; line-height:1.5; }
+    .cred-list { display:grid; grid-template-columns:1fr; gap:6px; font-size:13px; color:#374151; margin-bottom:12px; }
+    .cred-badges { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+    .badge-pill { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:1px solid #d1d5db; border-radius:999px; background:#fff; font-size:12px; font-weight:700; color:#1f2937; }
+    .badge-dot { width:10px; height:10px; border-radius:50%; background:#22c55e; display:inline-block; }
+    .custom-form { margin-top: 4px; }
+    .field-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom: 14px; }
+    .field-full { margin-bottom: 14px; }
+    .field-label { display:block; font-size:13px; font-weight:700; color:#1f2937; margin:0 0 6px 2px; }
+    .req { color:#dc2626; }
+    .input-shell { position:relative; }
+    .country-code { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#4b5563; font-weight:700; pointer-events:none; }
+    .custom-form input, .custom-form select, .custom-form textarea {
+      width:100%; border:1px solid #d1d5db; border-radius:10px; padding:12px 14px; font-size:14px; line-height:1.4; background:#fff; color:#111827;
+      appearance:none; -webkit-appearance:none; transition:border-color .15s ease, box-shadow .15s ease;
+    }
+    .custom-form input:focus, .custom-form select:focus, .custom-form textarea:focus { outline:none; border-color:#0f6b3d; box-shadow:0 0 0 3px rgba(15,107,61,.12); }
+    .phone-input { padding-left:40px !important; }
+    .radio-group { display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:4px; }
+    .radio-card { border:1px solid #d1d5db; border-radius:10px; padding:10px 12px; background:#fff; cursor:pointer; display:flex; align-items:center; gap:8px; font-size:14px; }
+    .radio-card input { width:auto !important; margin:0; }
+    .custom-form textarea { min-height: 110px; resize: vertical; }
+    .submit-row { margin-top: 4px; }
+    .submit-btn { width:100%; background:linear-gradient(135deg,#0f6b3d,#22c55e); color:#fff; border:none; border-radius:999px; padding:14px 18px; font-size:16px; font-weight:700; cursor:pointer; box-shadow:0 10px 20px rgba(15,107,61,.18); }
+    .submit-btn:hover { filter:brightness(.98); }
+    .submit-btn:disabled { opacity:.7; cursor:not-allowed; }
+    .form-status { min-height:20px; margin-top:10px; text-align:center; font-size:13px; color:#4b5563; }
+    .fineprint { margin-top:10px; font-size:12px; color:#6b7280; text-align:center; }
+    @media (max-width: 640px) { .field-grid, .radio-group { grid-template-columns:1fr; } .form-container { padding:1.35rem; } }
 
 </style>
 
@@ -303,244 +211,172 @@
 <section id="contact">
   <div class="container">
     <div class="form-container">
-
-      <div style="text-align: center;">
-        <img 
-          src="logo.png"
-          alt="All Access Funding Logo"
-          style="height: 85px; width: auto;">
+      <div class="contact-logo">
+        <img src="logo.png" alt="All Access Funding Logo">
       </div>
 
-      <h2>Start Your Funding Request</h2>
-      <p style="text-align:center; margin-bottom:1rem;">No obligation. No impact to your credit.</p>
+      <h2 style="margin-bottom:6px;">Get Business Funding Options</h2>
+      <p class="contact-subhead">Apply now — no obligation and no impact to your credit.</p>
+      <p class="contact-trustline">We never push clients into funding that doesn’t make financial sense.</p>
 
-      <span style="color: green; text-align: center; font-style: italic; display: block;">
-        All Access Funding US will never push you into a lending deal that doesn't make sense just to earn a commission. That is why our clients trust us.
-      </span>
-      <br>
+      <div class="cred-box">
+        <h3>Trusted Business Funding Advisors</h3>
+        <p>Nationwide funding solutions for startups and established businesses through our commercial lending partner network.</p>
+        <div class="cred-list">
+          <div>✔ Secure 256-bit SSL Encrypted Application</div>
+          <div>✔ Member – Alignable Small Business Network</div>
+          <div>✔ Startup & Existing Business Funding Solutions</div>
+        </div>
+        <div class="cred-badges">
+          <span class="badge-pill"><span class="badge-dot"></span>SSL Secure</span>
+          <span class="badge-pill"><span class="badge-dot"></span>Alignable Member</span>
+          <span class="badge-pill"><span class="badge-dot"></span>U.S. Nationwide</span>
+        </div>
+      </div>
 
+      <form id="funding-form" class="custom-form" novalidate>
+        <div class="field-grid">
+          <div class="field-full">
+            <label class="field-label" for="firstname">First Name <span class="req">*</span></label>
+            <input id="firstname" type="text" name="firstname" placeholder="Enter first name" autocomplete="given-name" required>
+          </div>
+          <div class="field-full">
+            <label class="field-label" for="lastname">Last Name <span class="req">*</span></label>
+            <input id="lastname" type="text" name="lastname" placeholder="Enter last name" autocomplete="family-name" required>
+          </div>
+        </div>
 
-<!-- Custom Funding Form (posts to Pipedream) -->
-<form id="funding-form" class="custom-form" novalidate>
-  <div class="field">
-    <label for="ff_firstname">First Name<span class="req">*</span></label>
-    <input id="ff_firstname" type="text" name="firstname" autocomplete="given-name" required>
-  </div>
+        <div class="field-full">
+          <label class="field-label" for="email">Email Address <span class="req">*</span></label>
+          <input id="email" type="email" name="email" placeholder="name@business.com" autocomplete="email" required>
+        </div>
 
-  <div class="field">
-    <label for="ff_lastname">Last Name<span class="req">*</span></label>
-    <input id="ff_lastname" type="text" name="lastname" autocomplete="family-name" required>
-  </div>
+        <div class="field-full">
+          <label class="field-label" for="phone">Phone Number <span class="req">*</span></label>
+          <div class="input-shell">
+            <span class="country-code">+1</span>
+            <input id="phone" class="phone-input" type="tel" name="phone" placeholder="6315551212" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" autocomplete="tel-national" required>
+          </div>
+        </div>
 
-  <div class="field">
-    <label for="ff_email">Email<span class="req">*</span></label>
-    <input id="ff_email" type="email" name="email" autocomplete="email" required>
-    <div class="help">We’ll email you a confirmation right away.</div>
-  </div>
+        <div class="field-full">
+          <label class="field-label">Credit Score <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card"><input type="radio" name="credit_score" value="Less than 599" required> Less than 599</label>
+            <label class="radio-card"><input type="radio" name="credit_score" value="600 to 649"> 600 to 649</label>
+            <label class="radio-card"><input type="radio" name="credit_score" value="650 to 679"> 650 to 679</label>
+            <label class="radio-card"><input type="radio" name="credit_score" value="680 to 719"> 680 to 719</label>
+            <label class="radio-card"><input type="radio" name="credit_score" value="720+"> 720+</label>
+          </div>
+        </div>
 
-  <div class="field">
-    <label for="ff_phone_local">Phone<span class="req">*</span></label>
-    <div class="phone-wrap">
-      <span class="prefix" aria-hidden="true">+1</span>
-      <input
-        id="ff_phone_local"
-        type="tel"
-        name="phone_local"
-        inputmode="numeric"
-        autocomplete="tel-national"
-        placeholder="(631) 555-1212"
-        required
-      >
-    </div>
-    <div class="help">US numbers only. Include area code.</div>
-    <input type="hidden" name="phone" id="ff_phone" value="">
-  </div>
+        <div class="field-full">
+          <label class="field-label" for="business_type">Business Type <span class="req">*</span></label>
+          <select id="business_type" name="business_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Startup">Startup</option>
+            <option value="Existing">Existing</option>
+          </select>
+        </div>
 
-  <div class="field">
-    <label>Credit Score<span class="req">*</span></label>
-    <div class="radio-grid" role="radiogroup" aria-label="Credit score">
-      <label class="radio"><input type="radio" name="credit_score" value="Less than 599" required><span>Less than 599</span></label>
-      <label class="radio"><input type="radio" name="credit_score" value="600 to 649" required><span>600 to 649</span></label>
-      <label class="radio"><input type="radio" name="credit_score" value="650 to 679" required><span>650 to 679</span></label>
-      <label class="radio"><input type="radio" name="credit_score" value="680 to 719" required><span>680 to 719</span></label>
-      <label class="radio"><input type="radio" name="credit_score" value="720+" required><span>720+</span></label>
-    </div>
-  </div>
+        <div class="field-full">
+          <label class="field-label" for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us a little about what you need (optional)"></textarea>
+        </div>
 
-  <div class="field">
-    <label for="ff_business_type">Business Type<span class="req">*</span></label>
-    <select id="ff_business_type" name="business_type" required>
-      <option value="" disabled selected>Please select…</option>
-      <option value="Startup">Startup</option>
-      <option value="Existing">Existing</option>
-    </select>
-  </div>
+        <div class="submit-row">
+          <button type="submit" id="funding-submit" class="submit-btn">Submit Request</button>
+          <div id="funding-status" class="form-status" aria-live="polite"></div>
+          <div class="fineprint">We review every submission personally and typically respond within minutes.</div>
+        </div>
+      </form>
 
-  <div class="field">
-    <label for="ff_message">Message (optional)</label>
-    <textarea id="ff_message" name="message" rows="4" placeholder="Tell us what you're looking to fund (optional)"></textarea>
-  </div>
+      <script>
+        (function () {
+          const WEBHOOK_URL = "https://eoamnji4ux4621y.m.pipedream.net";
+          const REDIRECT_URL = "thanks.html";
+          const form = document.getElementById("funding-form");
+          const btn = document.getElementById("funding-submit");
+          const statusEl = document.getElementById("funding-status");
+          const phoneEl = document.getElementById("phone");
+          if (!form) return;
 
-  <button type="submit" id="funding-submit">Submit Request</button>
-  <div id="funding-status" class="form-status" aria-live="polite"></div>
+          function setStatus(msg) { if (statusEl) statusEl.textContent = msg || ""; }
+          if (phoneEl) {
+            phoneEl.addEventListener("input", function () {
+              this.value = (this.value || "").replace(/\D/g, "").slice(0, 10);
+            });
+          }
 
-  <div class="fineprint">
-    By submitting, you agree to be contacted by phone, text, or email. No impact to your credit to apply.
-  </div>
-</form>
+          form.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-<script>
-  (function () {
-    const WEBHOOK_URL = "https://eoamnji4ux4621y.m.pipedream.net";
-    const REDIRECT_URL = "thanks.html";
+            const required = ["firstname", "lastname", "email", "phone", "business_type"];
+            for (const name of required) {
+              const el = form.querySelector('[name="' + name + '"]');
+              if (!el || !String(el.value || "").trim()) {
+                if (el && el.focus) el.focus();
+                setStatus("Please complete all required fields.");
+                return;
+              }
+            }
 
-    const form = document.getElementById("funding-form");
-    const btn = document.getElementById("funding-submit");
-    const statusEl = document.getElementById("funding-status");
-    const phoneLocalEl = document.getElementById("ff_phone_local");
-    const phoneHiddenEl = document.getElementById("ff_phone");
+            const phoneDigits = String(phoneEl?.value || "").replace(/\D/g, "");
+            if (phoneDigits.length !== 10) {
+              if (phoneEl && phoneEl.focus) phoneEl.focus();
+              setStatus("Please enter a valid 10-digit phone number.");
+              return;
+            }
 
-    if (!form) return;
+            const emailEl = form.querySelector('[name="email"]');
+            if (emailEl && !emailEl.checkValidity()) {
+              emailEl.focus();
+              setStatus("Please enter a valid email address.");
+              return;
+            }
 
-    let submitting = false;
+            const credit = form.querySelector('input[name="credit_score"]:checked');
+            if (!credit) {
+              setStatus("Please select a credit score range.");
+              return;
+            }
 
-    function setStatus(msg) {
-      if (statusEl) statusEl.textContent = msg || "";
-    }
+            if (btn) btn.disabled = true;
+            setStatus("Submitting...");
 
-    function digitsOnly(v) {
-      return String(v || "").replace(/\D/g, "");
-    }
+            const data = Object.fromEntries(new FormData(form).entries());
+            data.phone = "+1" + phoneDigits;
+            data.page_url = window.location.href;
 
-    function normalizePhoneToE164_US(rawDigits) {
-      // expects 10 digits; returns +1XXXXXXXXXX
-      const d = digitsOnly(rawDigits);
-      if (d.length !== 10) return "";
-      return "+1" + d;
-    }
+            const body = JSON.stringify(data);
 
-    function buildPayload() {
-      const fd = new FormData(form);
-      const payload = {};
-      for (const [k, v] of fd.entries()) payload[k] = v;
+            try {
+              if (navigator.sendBeacon) {
+                const blob = new Blob([body], { type: "text/plain;charset=UTF-8" });
+                navigator.sendBeacon(WEBHOOK_URL, blob);
+              } else {
+                fetch(WEBHOOK_URL, {
+                  method: "POST",
+                  mode: "no-cors",
+                  headers: { "Content-Type": "text/plain;charset=UTF-8" },
+                  body,
+                  keepalive: true,
+                }).catch(() => {});
+              }
 
-      // phone_local -> phone (+1XXXXXXXXXX)
-      const localDigits = digitsOnly(payload.phone_local);
-      payload.phone = normalizePhoneToE164_US(localDigits);
-      delete payload.phone_local;
+              if (typeof gtag === "function") {
+                gtag("event", "conversion", {
+                  send_to: "AW-17945938683/69S7CJWFnqgbEKO7uZFB",
+                });
+              }
+            } catch (err) {}
 
-      // page_url for context / debugging
-      payload.page_url = window.location.href;
-
-      return payload;
-    }
-
-    function markSubmitted() {
-      try {
-        sessionStorage.setItem("aaf_last_submit_ts", String(Date.now()));
-      } catch (e) {}
-    }
-
-    function recentlySubmitted() {
-      try {
-        const ts = parseInt(sessionStorage.getItem("aaf_last_submit_ts") || "0", 10);
-        return ts && (Date.now() - ts) < 30000; // 30s
-      } catch (e) {
-        return false;
-      }
-    }
-
-    // Keep hidden phone in sync as user types (for UX only)
-    function syncPhoneHidden() {
-      if (!phoneLocalEl || !phoneHiddenEl) return;
-      const d = digitsOnly(phoneLocalEl.value).slice(0, 10);
-      phoneHiddenEl.value = normalizePhoneToE164_US(d) || "";
-    }
-    if (phoneLocalEl) {
-      phoneLocalEl.addEventListener("input", syncPhoneHidden);
-      phoneLocalEl.addEventListener("blur", syncPhoneHidden);
-    }
-
-    async function fireWebhook(payload) {
-      const body = JSON.stringify(payload);
-
-      // Best-effort, non-blocking delivery:
-      // 1) sendBeacon (most reliable during redirects)
-      // 2) fetch with mode:no-cors as fallback (we can't inspect response)
-      try {
-        if (navigator.sendBeacon) {
-          const blob = new Blob([body], { type: "text/plain;charset=UTF-8" });
-          const ok = navigator.sendBeacon(WEBHOOK_URL, blob);
-          if (ok) return true;
-        }
-      } catch (e) {}
-
-      try {
-        // no-cors avoids CORS errors that can *look* like failures even when the request arrived.
-        await fetch(WEBHOOK_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=UTF-8" },
-          body,
-          keepalive: true,
-        });
-        return true;
-      } catch (e) {
-        return false;
-      }
-    }
-
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      if (submitting || recentlySubmitted()) {
-        // Prevent double-submit / double-click duplicates
-        return;
-      }
-
-      // Native validation UI
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      submitting = true;
-      markSubmitted();
-      setStatus("Submitting…");
-
-      if (btn) {
-        btn.disabled = true;
-        btn.dataset.originalText = btn.dataset.originalText || btn.textContent;
-        btn.textContent = "Submitting…";
-      }
-
-      const payload = buildPayload();
-
-      // Fire Google Ads conversion immediately (only once user passed validation)
-      try {
-        if (typeof gtag === "function") {
-          gtag("event", "conversion", {
-            "send_to": "AW-17945938683/aRZjCKmtvfwbEPuVpe1C",
-            "value": 1.0,
-            "currency": "USD"
+            window.location.href = REDIRECT_URL;
           });
-        }
-      } catch (e) {}
-
-      // Send webhook best-effort. We do NOT block on HTTP status.
-      const sent = await fireWebhook(payload);
-
-      // Always redirect — avoids the “Something went wrong” + double-click duplicates.
-      // If webhook truly failed, your backup monitoring (HubSpot form alert / etc.) will still catch it.
-      window.location.href = REDIRECT_URL;
-
-      // (No code after redirect is guaranteed to run)
-      void sent;
-    });
-  })();
-</script>
-    </div> <!-- /.form-container -->
-  </div> <!-- /.container -->
+        })();
+      </script>
+    </div>
+  </div>
 </section>
 
 
@@ -613,13 +449,245 @@
   setInterval(showNextTestimonial, 4000);
 </script>
 
+<script>
+(function(){
+  console.log('Starting HubSpot conversion polling listener');
+
+  // Maximum time to keep polling (ms)
+  const POLL_TIMEOUT = 30000; // 30 seconds
+  const POLL_INTERVAL = 500;  // check every 0.5s
+  const startTime = Date.now();
+
+  function attachListener() {
+    try {
+      window.addEventListener('message', function(event) {
+        if (
+          event.data &&
+          event.data.type === 'hsFormCallback' &&
+          event.data.eventName === 'onFormSubmit'
+        ) {
+          console.log('HubSpot form submitted — firing Google Ads conversion');
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17945938683/aRZjCKmtvfwbEPuVpe1C',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
+      });
+      console.log('HubSpot conversion listener attached');
+      return true;
+    } catch(e) {
+      console.warn('Failed to attach HubSpot listener, retrying...', e);
+      return false;
+    }
+  }
+
+  
+})();
+</script>
+
+<script>
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+    var form = document.querySelector('form.hs-form');
+    if (!form) return;
+
+    // Prevent duplicate injection
+    if (form.querySelector('input[name="submission_id"]')) return;
+
+    var hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 'submission_id';
+    hiddenInput.value = Date.now(); // unique per submission
+
+    form.appendChild(hiddenInput);
+  }
+});
+</script>
 
 
 
+<script>
+(function () {
+  const LOOKUP_URL = "https://allaccessfundingus.com/area_code_lookup_full.json";
+  let lookupCache = null;
+
+  async function getLookup() {
+    if (lookupCache) return lookupCache;
+    const res = await fetch(LOOKUP_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Lookup fetch failed: " + res.status);
+    lookupCache = await res.json();
+    return lookupCache;
+  }
+
+  function digitsOnly(v) {
+    return String(v || "").replace(/\D/g, "");
+  }
+
+  function normalizeTo10(d) {
+    if (d.length === 11 && d.startsWith("1")) return d.slice(1);
+    return d;
+  }
+
+  function setField(doc, name, value) {
+    const el = doc.querySelector(`[name="${name}"]`);
+    if (el) el.value = value || "";
+  }
+
+  async function enrich(iframeDoc) {
+    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
+    if (!phoneEl) return;
+
+    const d = normalizeTo10(digitsOnly(phoneEl.value));
+    if (d.length < 10) {
+      setField(iframeDoc, "city", "");
+      setField(iframeDoc, "state", "");
+      setField(iframeDoc, "zip", "");
+      return;
+    }
+
+    const area = d.slice(0, 3);
+
+    try {
+      const lookup = await getLookup();
+      const rec = lookup[area] || {};
+      setField(iframeDoc, "city", rec.city || "");
+      setField(iframeDoc, "state", rec.state || "");
+      setField(iframeDoc, "zip", rec.zip || "");
+    } catch (e) {
+      // If lookup fails, don’t block submission—just clear the values
+      setField(iframeDoc, "city", "");
+      setField(iframeDoc, "state", "");
+      setField(iframeDoc, "zip", "");
+    }
+  }
+
+  function hookIntoIframe() {
+    const iframe = document.querySelector("iframe.hs-form-iframe");
+    if (!iframe) return false;
+
+    // Wait until iframe doc is accessible and form exists
+    let iframeDoc;
+    try {
+      iframeDoc = iframe.contentWindow.document;
+    } catch (e) {
+      return false;
+    }
+
+    const form = iframeDoc.querySelector("form");
+    if (!form) return false;
+
+    // Prefetch lookup once (optional)
+    getLookup().catch(() => {});
+
+    // Attach listeners once
+    if (form.__areaCodeHooked) return true;
+    form.__areaCodeHooked = true;
+
+    const phoneEl = iframeDoc.querySelector('input[name="phone"]');
+    if (phoneEl) {
+      phoneEl.addEventListener("input", () => enrich(iframeDoc));
+      phoneEl.addEventListener("blur", () => enrich(iframeDoc));
+    }
+
+    // Ensure it runs right before submit too
+    form.addEventListener("submit", () => enrich(iframeDoc));
+
+    // Run once for autofill cases
+    enrich(iframeDoc);
+
+    return true;
+  }
 
 
+<script>
+(function () {
+  const LOOKUP_URL = "https://allaccessfundingus.com/area_code_lookup_full.json";
+  let lookupCache = null;
+  let lookupPromise = null;
+
+  function digitsOnly(v) { return String(v || "").replace(/\D/g, ""); }
+  function normalizeTo10(d) { return (d.length === 11 && d.startsWith("1")) ? d.slice(1) : d; }
+
+  function loadLookup() {
+    if (lookupCache) return Promise.resolve(lookupCache);
+    if (lookupPromise) return lookupPromise;
+
+    lookupPromise = fetch(LOOKUP_URL, { cache: "no-store" })
+      .then(r => { if (!r.ok) throw new Error("Lookup fetch failed: " + r.status); return r.json(); })
+      .then(j => (lookupCache = j))
+      .catch(err => { lookupPromise = null; throw err; });
+
+    return lookupPromise;
+  }
+
+  async function enrich($form) {
+    const phoneVal = $form.find('input[name="phone"]').val();
+    const d = normalizeTo10(digitsOnly(phoneVal));
+
+    // Clear inferred fields if not enough digits yet
+    if (d.length < 10) {
+      $form.find('input[name="inferred_city"]').val("");
+      $form.find('input[name="inferred_state"]').val("");
+      $form.find('input[name="inferred_zip"]').val("");
+      return;
+    }
+
+    const area = d.slice(0, 3);
+
+    try {
+      const lookup = await loadLookup();
+      const rec = lookup[area] || {};
+
+      $form.find('input[name="inferred_city"]').val(rec.city || "");
+      $form.find('input[name="inferred_state"]').val(rec.state || "");
+      $form.find('input[name="inferred_zip"]').val(rec.zip || "");
+    } catch (e) {
+      // Don’t block submission if lookup fails
+      $form.find('input[name="inferred_city"]').val("");
+      $form.find('input[name="inferred_state"]').val("");
+      $form.find('input[name="inferred_zip"]').val("");
+    }
+  }
 
 
+  // Patch hbspt.forms.create so every form you create gets our callbacks
+  const wait = setInterval(function () {
+    if (!window.hbspt || !window.hbspt.forms || !window.hbspt.forms.create) return;
+
+    clearInterval(wait);
+
+    const originalCreate = window.hbspt.forms.create;
+    window.hbspt.forms.create = function (opts) {
+      const userOnReady = opts.onFormReady;
+      const userOnSubmit = opts.onFormSubmit;
+
+      opts.onFormReady = function ($form) {
+        // preload for speed
+        loadLookup().catch(() => {});
+
+        // run once for autofill
+        enrich($form);
+
+        // update as user types
+        const $phone = $form.find('input[name="phone"]');
+        $phone.on("input", () => enrich($form));
+        $phone.on("blur", () => enrich($form));
+
+        if (typeof userOnReady === "function") userOnReady($form);
+      };
+
+      opts.onFormSubmit = function ($form) {
+        // final best-effort fill at submit
+        enrich($form);
+        if (typeof userOnSubmit === "function") userOnSubmit($form);
+      };
+
+      return originalCreate.call(window.hbspt.forms, opts);
+    };
+  }, 50);
+})();
+</script>
 
 
 </body>
