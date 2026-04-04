@@ -91,7 +91,7 @@ header {
             drop-shadow(0 0 16px rgba(212,175,55,0.22));
   }
 }
-}
+
 
 /* About Section — guaranteed size and spacing */
 .alt.about .container h2 {
@@ -197,6 +197,20 @@ box-shadow:0 0 0 2px rgba(34,197,94,0.25);
 border-color:#16a34a;
 }
 
+
+/* SCROLL ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 </style>
 
 </head>
@@ -212,13 +226,13 @@ border-color:#16a34a;
   <a href="#contact" class="cta-button">Get Funded</a>
 </header>
 
-<section class="alt">
+<section class="alt fade-in">
   <div class="container">
     <h2>Why All Access Funding</h2>
     <div class="features">
-      <div class="feature"><h3>One Application, Full Market Access</h3><p>We work with a wide network of lenders to find the best option for your profile.</p></div>
-      <div class="feature"><h3>Solutions for Every Scenario</h3><p>Strong credit, startups, or complex files — we structure deals that make sense.</p></div>
-      <div class="feature"><h3>Fast & Transparent</h3><p>Clear expectations, quick decisions, and real guidance from start to funding.</p></div>
+      <div class="feature fade-in"><h3>One Application, Full Market Access</h3><p>We work with a wide network of lenders to find the best option for your profile.</p></div>
+      <div class="feature fade-in"><h3>Solutions for Every Scenario</h3><p>Strong credit, startups, or complex files — we structure deals that make sense.</p></div>
+      <div class="feature fade-in"><h3>Fast & Transparent</h3><p>Clear expectations, quick decisions, and real guidance from start to funding.</p></div>
     </div>
   </div>
 </section>
@@ -257,29 +271,29 @@ border-color:#16a34a;
   </p>
 </div>
 
-<section>
+<section class="fade-in">
   <div class="container">
     <h2>Funding Solutions</h2>
     <p style="text-align:center; margin-bottom:1rem;">Click any option below to learn more.</p>
     <div class="products">
-      <details class="product"><summary>💼 Term Loans</summary><p>Fixed payments for growth, expansion, or refinancing.</p></details>
-      <details class="product"><summary>💳 Business Lines of Credit</summary><p>Flexible revolving credit you draw from as needed.</p></details>
-      <details class="product"><summary>📈 SLOC / Credit Card Stacking</summary><p>High-limit unsecured credit cards, often with 0% intro APRs.</p></details>
-      <details class="product"><summary>⚡ Merchant Cash Advances</summary><p>Fast funding based on revenue and cash flow.</p></details>
-      <details class="product"><summary>🧾 A/R Factoring</summary><p>Turn outstanding invoices into immediate capital.</p></details>
-      <details class="product"><summary>🏗️ Equipment Financing</summary><p>Finance equipment while preserving working capital.</p></details>
-      <details class="product"><summary>🏢 Commercial & Investment Real Estate</summary><p>Owner-occupied and investment property financing.</p></details>
-      <details class="product"><summary>🏛️ SBA Loans</summary><p>SBA 7(a) and 504 loan programs offering long-term, government-backed financing for startups and established businesses.</p></details>  
+      <details class="product fade-in"><summary>💼 Term Loans</summary><p>Fixed payments for growth, expansion, or refinancing.</p></details>
+      <details class="product fade-in"><summary>💳 Business Lines of Credit</summary><p>Flexible revolving credit you draw from as needed.</p></details>
+      <details class="product fade-in"><summary>📈 SLOC / Credit Card Stacking</summary><p>High-limit unsecured credit cards, often with 0% intro APRs.</p></details>
+      <details class="product fade-in"><summary>⚡ Merchant Cash Advances</summary><p>Fast funding based on revenue and cash flow.</p></details>
+      <details class="product fade-in"><summary>🧾 A/R Factoring</summary><p>Turn outstanding invoices into immediate capital.</p></details>
+      <details class="product fade-in"><summary>🏗️ Equipment Financing</summary><p>Finance equipment while preserving working capital.</p></details>
+      <details class="product fade-in"><summary>🏢 Commercial & Investment Real Estate</summary><p>Owner-occupied and investment property financing.</p></details>
+      <details class="product fade-in"><summary>🏛️ SBA Loans</summary><p>SBA 7(a) and 504 loan programs offering long-term, government-backed financing for startups and established businesses.</p></details>  
   </div>
 </section>
 
-<section class="alt" id="how-it-works">
+<section class="alt fade-in" id="how-it-works">
   <div class="container">
     <h2>How It Works</h2>
     <div class="features">
-      <div class="feature"><h3>1. Apply Once</h3><p>Submit a simple application.</p></div>
-      <div class="feature"><h3>2. We Match</h3><p>We shop the market for you.</p></div>
-      <div class="feature"><h3>3. Get Funded</h3><p>Choose the best option and receive funds.</p></div>
+      <div class="feature fade-in"><h3>1. Apply Once</h3><p>Submit a simple application.</p></div>
+      <div class="feature fade-in"><h3>2. We Match</h3><p>We shop the market for you.</p></div>
+      <div class="feature fade-in"><h3>3. Get Funded</h3><p>Choose the best option and receive funds.</p></div>
     </div>
   </div>
 </section>
@@ -545,7 +559,7 @@ Get Your Credit Scores
   </div>
 </section>
 
-<section class="alt about">
+<section class="alt about fade-in">
   <div class="container about-container">
     <h2>About All Access Funding US</h2>
     <p>All Access Funding US is an independent alternative lending brokerage based in the United States,
@@ -828,6 +842,42 @@ window.addEventListener('message', function(event) {
 </script>
 
 <script src="//code.tidio.co/cgb7qulnna9bbb1jdpcqbuo96fe1hhbc.js" async></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
 
 </body>
 </html>
